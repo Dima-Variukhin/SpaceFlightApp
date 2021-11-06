@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingLeft="16dp"
+    android:paddingEnd="16dp"
+    android:paddingRight="16dp">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.spaceflightapp.core.CustomTextViewTitle
+            android:id="@+id/title"
+            android:layout_width="384dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            tools:text="Astra plans next orbital launch attempt from Alaska">
+
+        </com.example.spaceflightapp.core.CustomTextViewTitle>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:adjustViewBounds="true"
+        tools:scaleType="centerCrop"
+        tools:src="@mipmap/ic_launcher_round" />
+
+    <com.example.spaceflightapp.core.CustomTextViewSummary
+        android:id="@+id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textSize="11sp"
+        tools:text="Astra, the small satellite launch company, said Wednesday it will try again to send a test payload into orbit from Alaska as soon as next week after three previous flights missed the mark." />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.example.spaceflightapp.core.CustomTextViewNews
+            android:id="@+id/newsSite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textColor="@color/purple_700"
+            android:textSize="12sp"
+            tools:text="Spaceflight Now" />
+
+
+        <com.example.spaceflightapp.core.CustomTextViewPublished
+            android:id="@+id/publishedAt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+
+            android:textColor="@color/purple_700"
+            android:textSize="12sp"
+            tools:text="2021-11-04T21:16:42.000Z" />
+
+        <com.example.spaceflightapp.core.CustomTextViewUpdated
+            android:id="@+id/updatedAt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+
+            android:gravity="center"
+
+            android:textColor="@color/purple_700"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="2021-11-04T21:16:42.834Z" />
+
+    </LinearLayout>
+</LinearLayout>
+
+

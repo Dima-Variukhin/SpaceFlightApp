@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpaceFlightApp</string>
+    <string name="no_connection_message">No internet connection</string>
+    <string name="service_unavailable_message">Service unavailable</string>
+    <string name="something_went_wrong">something went wrong</string>
+    <string name="try_again">TRY AGAIN</string>
 </resources>
