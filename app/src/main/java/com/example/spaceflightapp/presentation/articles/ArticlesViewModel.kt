@@ -31,6 +31,17 @@ class ArticlesViewModel(
         }
     }
 
+    fun update() {
+        communication.map(ArticlesUi.Base(ArrayList(listOf(ArticleUi.Progress))))
+        viewModelScope.launch(Dispatchers.IO) {
+            val resultDomain = articlesInteractor.update()
+            val resultUi = resultDomain.map(mapper)
+            withContext(Dispatchers.Main) {
+                communication.map(resultUi)
+            }
+        }
+    }
+
     fun observe(owner: LifecycleOwner, observer: Observer<ArticlesUi>) {
         communication.observe(owner, observer)
     }

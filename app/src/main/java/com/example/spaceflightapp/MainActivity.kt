@@ -2,14 +2,16 @@ package com.example.spaceflightapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
 import com.example.spaceflightapp.core.SpaceFlightApp
+import com.example.spaceflightapp.presentation.articles.ArticlesViewModel
 import com.example.spaceflightapp.presentation.articles.BaseFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
-
     fun <T : ViewModel> getViewModel(model: Class<T>, owner: ViewModelStoreOwner) =
         (application as SpaceFlightApp).viewModel(model, owner)
 

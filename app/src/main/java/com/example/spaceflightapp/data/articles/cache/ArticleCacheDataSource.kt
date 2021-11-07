@@ -1,13 +1,13 @@
 package com.example.spaceflightapp.data.articles.cache
 
-import com.example.spaceflightapp.core.CacheDataSource
-import com.example.spaceflightapp.core.DbWrapper
-import com.example.spaceflightapp.core.Read
-import com.example.spaceflightapp.core.RealmProvider
+import android.util.Log
+import com.example.spaceflightapp.core.*
 import com.example.spaceflightapp.data.articles.ArticleData
 import io.realm.Realm
+import kotlin.math.log
 
-interface ArticleCacheDataSource : CacheDataSource<ArticleData>, Read<List<ArticleDb>> {
+interface ArticleCacheDataSource : CacheDataSource<ArticleData>, Read<List<ArticleDb>>,
+    Update<List<ArticleData>> {
     class Base(
         private val realmProvider: RealmProvider,
         private val mapper: ArticleDataToDbMapper<ArticleDb>
@@ -21,6 +21,15 @@ interface ArticleCacheDataSource : CacheDataSource<ArticleData>, Read<List<Artic
 
         override fun save(data: List<ArticleData>) = realmProvider.provide().use { realm ->
             realm.executeTransaction {
+                data.forEach { article ->
+                    article.map(mapper, ArticleDbWrapper(it))
+                }
+            }
+        }
+
+        override fun update(data: List<ArticleData>) = realmProvider.provide().use { realm ->
+            realm.executeTransaction {
+                it.deleteAll()
                 data.forEach { article ->
                     article.map(mapper, ArticleDbWrapper(it))
                 }

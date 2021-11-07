@@ -1,22 +1,38 @@
 package com.example.spaceflightapp.presentation.articles
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import com.example.spaceflightapp.R
 import com.example.spaceflightapp.core.Retry
 
 class ArticlesFragment : BaseFragment<ArticlesViewModel>() {
     override fun viewModelClass() = ArticlesViewModel::class.java
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setHasOptionsMenu(true)
         val adapter = ArticleAdapter(object : Retry {
             override fun tryAgain() = viewModel.fetchArticles()
-        }
-        )
+        })
         setAdapter(adapter)
         viewModel.observe(this) {
             it.map(adapter)
         }
         viewModel.init()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.data) {
+            update()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun update() = viewModel.update()
 }

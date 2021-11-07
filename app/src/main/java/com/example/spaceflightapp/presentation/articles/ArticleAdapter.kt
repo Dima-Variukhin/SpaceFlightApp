@@ -2,11 +2,13 @@ package com.example.spaceflightapp.presentation.articles
 
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.example.spaceflightapp.R
 import com.example.spaceflightapp.core.*
 
 class ArticleAdapter(
-    private val retry: Retry
+    private val retry: Retry,
 ) : BaseAdapter<ArticleUi, BaseViewHolder<ArticleUi>>() {
 
     override fun getItemViewType(position: Int) = when (list[position]) {
@@ -30,12 +32,15 @@ class ArticleAdapter(
             private val news = itemView.findViewById<CustomTextViewNews>(R.id.newsSite)
             private val published = itemView.findViewById<CustomTextViewPublished>(R.id.publishedAt)
             private val updated = itemView.findViewById<CustomTextViewUpdated>(R.id.updatedAt)
+            private val image = itemView.findViewById<CustomImageView>(R.id.image)
             override fun bind(item: ArticleUi) {
                 item.map(title)
                 item.map(summary)
                 item.map(news)
                 item.map(published)
                 item.map(updated)
+                item.map(image)
+
             }
         }
     }

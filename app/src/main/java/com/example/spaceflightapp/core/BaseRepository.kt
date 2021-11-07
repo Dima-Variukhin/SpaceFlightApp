@@ -1,10 +1,11 @@
 package com.example.spaceflightapp.core
 
+import android.util.Log
 import io.realm.RealmObject
 
 interface BaseRepository<E : Abstract.DataObject> {
     suspend fun fetchData(): E
-
+    suspend fun update(): E
     abstract class Base<T : RealmObject,
             C : Abstract.CloudObject,
             D : Abstract.DataObject,
@@ -23,6 +24,17 @@ interface BaseRepository<E : Abstract.DataObject> {
             } else {
                 returnSuccess((cacheMapper.map(cachedList)))
             }
+        } catch (e: Exception) {
+            returnFail(e)
+        }
+
+        //override suspend fun delete() = cacheDataSource.delete()
+
+        override suspend fun update() = try {
+            val cloudList = fetchCloudData()
+            val list = cloudMapper.map(cloudList)
+            cacheDataSource.update(list)
+            returnSuccess(list)
         } catch (e: Exception) {
             returnFail(e)
         }
