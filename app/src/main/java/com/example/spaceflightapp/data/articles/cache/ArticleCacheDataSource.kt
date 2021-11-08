@@ -1,10 +1,8 @@
 package com.example.spaceflightapp.data.articles.cache
 
-import android.util.Log
 import com.example.spaceflightapp.core.*
 import com.example.spaceflightapp.data.articles.ArticleData
 import io.realm.Realm
-import kotlin.math.log
 
 interface ArticleCacheDataSource : CacheDataSource<ArticleData>, Read<List<ArticleDb>>,
     Update<List<ArticleData>> {

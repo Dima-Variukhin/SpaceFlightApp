@@ -15,12 +15,12 @@ class ArticlesRepositoryContainer(
     private val coreModule: CoreModule
 ) : RepositoryContainer<ArticleRepository> {
     override fun repository(): ArticleRepository {
-        val toArticleMapper = ToArticleMapper.Base()
+        val toBlogMapper = ToArticleMapper.Base()
         return ArticleRepository.Base(
             articlesCloudDataSource(),
             articlesCacheDataSource(),
-            ArticleCloudMapper.Base(toArticleMapper),
-            ArticleCacheMapper.Base(toArticleMapper)
+            ArticleCloudMapper.Base(toBlogMapper),
+            ArticleCacheMapper.Base(toBlogMapper)
         )
     }
 

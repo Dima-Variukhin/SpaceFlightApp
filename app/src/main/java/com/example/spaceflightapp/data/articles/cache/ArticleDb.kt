@@ -4,7 +4,7 @@ import com.example.spaceflightapp.data.articles.ToArticleMapper
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-open class ArticleDb : RealmObject(), ArticleRealm {
+open class ArticleDb : RealmObject(),ArticleRealm {
     @PrimaryKey
     var idA: Int = -1
     var titleA: String = ""

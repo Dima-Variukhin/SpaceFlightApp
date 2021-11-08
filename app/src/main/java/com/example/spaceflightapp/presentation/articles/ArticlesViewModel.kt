@@ -1,13 +1,16 @@
 package com.example.spaceflightapp.presentation.articles
 
+
+
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.example.spaceflightapp.core.ResourceProvider
+import com.example.spaceflightapp.core.Show
 import com.example.spaceflightapp.domain.articles.ArticlesDomainToUiMapper
 import com.example.spaceflightapp.domain.articles.ArticlesInteractor
 import com.example.spaceflightapp.presentation.BaseViewModel
-import com.example.spaceflightapp.presentation.NavigationCommunication
+import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -17,9 +20,9 @@ class ArticlesViewModel(
     private val mapper: ArticlesDomainToUiMapper<ArticlesUi>,
     private val communication: ArticlesCommunication,
     private val navigator: ArticlesNavigator,
-    private val navigationCommunication: NavigationCommunication,
+    private val navigationCommunicationWeb: NavigationCommunicationWeb,
     resourceProvider: ResourceProvider,
-) : BaseViewModel(resourceProvider) {
+) : BaseViewModel(resourceProvider), Show {
     fun fetchArticles() {
         communication.map(ArticlesUi.Base(ArrayList(listOf(ArticleUi.Progress))))
         viewModelScope.launch(Dispatchers.IO) {
@@ -49,5 +52,9 @@ class ArticlesViewModel(
     fun init() {
         navigator.saveArticleScreen()
         fetchArticles()
+    }
+
+    override fun open(data: String) {
+        navigationCommunicationWeb.map(data)
     }
 }

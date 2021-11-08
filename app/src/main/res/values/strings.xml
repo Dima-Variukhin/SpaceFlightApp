@@ -6,4 +6,13 @@
     <string name="try_again">TRY AGAIN</string>
     <string name="delete">delete data</string>
     <string name="update">Update data</string>
+    <string name="articles">ARTICLES</string>
+    <string name="blogs">BLOGS</string>
+    <string name="reports">REPORTS</string>
+
+
+
+    <string name="please_wait">Loading…</string>
+    <string name="settings">Settings</string>
+    <string name="back_again_to_exit">Click again to return on news page</string>
 </resources>

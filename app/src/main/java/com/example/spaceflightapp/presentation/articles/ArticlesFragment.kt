@@ -6,21 +6,26 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import com.example.spaceflightapp.R
+import com.example.spaceflightapp.core.ClickListener
 import com.example.spaceflightapp.core.Retry
 
 class ArticlesFragment : BaseFragment<ArticlesViewModel>() {
     override fun viewModelClass() = ArticlesViewModel::class.java
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         val adapter = ArticleAdapter(object : Retry {
             override fun tryAgain() = viewModel.fetchArticles()
+        }, object : ClickListener<ArticleUi> {
+            override fun click(item: ArticleUi) = item.open(viewModel)
         })
         setAdapter(adapter)
         viewModel.observe(this) {
             it.map(adapter)
         }
         viewModel.init()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

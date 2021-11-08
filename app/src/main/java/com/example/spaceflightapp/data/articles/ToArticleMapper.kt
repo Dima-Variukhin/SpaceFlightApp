@@ -14,7 +14,8 @@ interface ToArticleMapper<T> : Abstract.Mapper {
         updatedAtA: String
     ): T
 
-    class Base : ToArticleMapper<ArticleData> {
+    class Base :
+        ToArticleMapper<ArticleData> {
         override fun map(
             idA: Int,
             titleA: String,

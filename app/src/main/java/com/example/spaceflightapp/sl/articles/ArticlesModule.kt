@@ -21,7 +21,7 @@ class ArticlesModule(
             mapper(),
             communication(),
             coreModule.navigator,
-            coreModule.navigationCommunication,
+            coreModule.navigationCommunicationWeb,
             coreModule.resourceProvider
         )
     }

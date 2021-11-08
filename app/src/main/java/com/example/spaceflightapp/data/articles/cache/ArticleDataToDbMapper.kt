@@ -17,7 +17,8 @@ interface ArticleDataToDbMapper<E : RealmObject> : Abstract.Mapper {
         db: DbWrapper<E>
     ): E
 
-    class Base : ArticleDataToDbMapper<ArticleDb> {
+    class Base :
+        ArticleDataToDbMapper<ArticleDb> {
         override fun mapToDb(
             idA: Int,
             titleA: String,

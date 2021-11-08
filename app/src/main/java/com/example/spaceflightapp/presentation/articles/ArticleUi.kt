@@ -29,6 +29,8 @@ sealed class ArticleUi : FromUi<ArticleUi>, Match<Int>,
         override fun sameContent(item: ArticleUi) = if (item is Base) {
             titleA == item.titleA
         } else false
+
+        override fun open(show: Show) = show.open(urlA)
     }
 
     class Fail(private val message: String) : ArticleUi() {

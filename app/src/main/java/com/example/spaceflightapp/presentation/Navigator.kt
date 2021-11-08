@@ -26,6 +26,8 @@ interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator {
         }
 
         override fun saveArticleScreen() = save(ARTICLES_SCREEN)
+
+
         private fun getFileName() = NAVIGATOR_FILE_NAME
         private fun getCurrentScreenKey() = CURRENT_SCREEN_KEY
 
