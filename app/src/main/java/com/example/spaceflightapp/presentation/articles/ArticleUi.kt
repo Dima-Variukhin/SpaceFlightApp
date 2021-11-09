@@ -6,7 +6,7 @@ sealed class ArticleUi : FromUi<ArticleUi>, Match<Int>,
     Open {
     override fun matches(arg: Int) = false
     override fun open(show: Show) = Unit
-    override fun map(mapper: AdapterArticleMapper<Unit>) = Unit
+    override fun map(mapper: AdapterNewsMapper<Unit>) = Unit
 
     object Empty : ArticleUi()
     object Progress : ArticleUi()
@@ -21,7 +21,7 @@ sealed class ArticleUi : FromUi<ArticleUi>, Match<Int>,
         private val publishedAtA: String,
         private val updatedAtA: String
     ) : ArticleUi() {
-        override fun map(mapper: AdapterArticleMapper<Unit>) =
+        override fun map(mapper: AdapterNewsMapper<Unit>) =
             mapper.map(idA, titleA, urlA, imageUrlA, newsSiteA, summaryA, publishedAtA, updatedAtA)
 
         override fun matches(arg: Int) = arg == idA
@@ -34,7 +34,7 @@ sealed class ArticleUi : FromUi<ArticleUi>, Match<Int>,
     }
 
     class Fail(private val message: String) : ArticleUi() {
-        override fun map(mapper: AdapterArticleMapper<Unit>) = mapper.map(message)
+        override fun map(mapper: AdapterNewsMapper<Unit>) = mapper.map(message)
 
         override fun sameContent(item: ArticleUi) = if (item is Fail) {
             message == item.message

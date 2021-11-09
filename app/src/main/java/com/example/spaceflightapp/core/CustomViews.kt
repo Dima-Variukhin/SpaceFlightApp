@@ -2,7 +2,6 @@ package com.example.spaceflightapp.core
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.net.toUri
@@ -11,7 +10,7 @@ import com.example.spaceflightapp.R
 
 //todo make all views custom except image
 
-class CustomTextView : AppCompatTextView, AdapterArticleMapper<Unit> {
+class CustomTextView : AppCompatTextView, AdapterNewsMapper<Unit> {
     //region constructors
     constructor(context: Context) : super(
         context
@@ -40,7 +39,7 @@ class CustomTextView : AppCompatTextView, AdapterArticleMapper<Unit> {
     //endregion
 }
 
-class CustomTextViewTitle : AppCompatTextView, AdapterArticleMapper<Unit> {
+class CustomTextViewTitle : AppCompatTextView, AdapterNewsMapper<Unit> {
     //region constructors
     constructor(context: Context) : super(
         context
@@ -69,7 +68,7 @@ class CustomTextViewTitle : AppCompatTextView, AdapterArticleMapper<Unit> {
     //endregion
 }
 
-class CustomTextViewSummary : AppCompatTextView, AdapterArticleMapper<Unit> {
+class CustomTextViewSummary : AppCompatTextView, AdapterNewsMapper<Unit> {
     //region constructors
     constructor(context: Context) : super(
         context
@@ -98,7 +97,7 @@ class CustomTextViewSummary : AppCompatTextView, AdapterArticleMapper<Unit> {
     //endregion
 }
 
-class CustomTextViewNews : AppCompatTextView, AdapterArticleMapper<Unit> {
+class CustomTextViewNews : AppCompatTextView, AdapterNewsMapper<Unit> {
     //region constructors
     constructor(context: Context) : super(
         context
@@ -127,7 +126,7 @@ class CustomTextViewNews : AppCompatTextView, AdapterArticleMapper<Unit> {
     //endregion
 }
 
-class CustomTextViewPublished : AppCompatTextView, AdapterArticleMapper<Unit> {
+class CustomTextViewPublished : AppCompatTextView, AdapterNewsMapper<Unit> {
     //region constructors
     constructor(context: Context) : super(
         context
@@ -156,7 +155,7 @@ class CustomTextViewPublished : AppCompatTextView, AdapterArticleMapper<Unit> {
     //endregion
 }
 
-class CustomTextViewUpdated : AppCompatTextView, AdapterArticleMapper<Unit> {
+class CustomTextViewUpdated : AppCompatTextView, AdapterNewsMapper<Unit> {
     //region constructors
     constructor(context: Context) : super(
         context
@@ -185,7 +184,7 @@ class CustomTextViewUpdated : AppCompatTextView, AdapterArticleMapper<Unit> {
     //endregion
 }
 
-class CustomImageView : AppCompatImageView, AdapterArticleMapper<Unit> {
+class CustomImageView : AppCompatImageView, AdapterNewsMapper<Unit> {
     //region constructors
     constructor(context: Context) : super(
         context

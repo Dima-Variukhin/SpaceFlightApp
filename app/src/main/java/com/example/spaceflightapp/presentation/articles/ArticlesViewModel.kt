@@ -22,7 +22,7 @@ class ArticlesViewModel(
     private val navigator: ArticlesNavigator,
     private val navigationCommunicationWeb: NavigationCommunicationWeb,
     resourceProvider: ResourceProvider,
-) : BaseViewModel(resourceProvider), Show {
+) : BaseViewModel(), Show {
     fun fetchArticles() {
         communication.map(ArticlesUi.Base(ArrayList(listOf(ArticleUi.Progress))))
         viewModelScope.launch(Dispatchers.IO) {

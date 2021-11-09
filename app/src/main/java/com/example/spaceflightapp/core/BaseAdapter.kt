@@ -52,13 +52,10 @@ abstract class BaseViewHolder<E : FromUi<E>>(view: View) :
     }
 }
 
-interface ComparableTextMapper<T : ComparableTextMapper<T>> : Abstract.Object<Unit, TextMapper>,
-    Comparing<T>
-
-interface FromUi<T : FromUi<T>> : Abstract.Object<Unit, AdapterArticleMapper<Unit>>, Comparing<T>
+interface FromUi<T : FromUi<T>> : Abstract.Object<Unit, AdapterNewsMapper<Unit>>, Comparing<T>
 
 
-interface AdapterArticleMapper<T> : Abstract.Mapper {
+interface AdapterNewsMapper<T> : Abstract.Mapper {
     fun map(
         idA: Int,
         titleA: String,
@@ -72,9 +69,6 @@ interface AdapterArticleMapper<T> : Abstract.Mapper {
 
     fun map(message: String)
 }
-
-
-interface TextMapper : Abstract.Mapper.Data<String, Unit>
 
 interface ClickListener<T> {
     fun click(item: T)

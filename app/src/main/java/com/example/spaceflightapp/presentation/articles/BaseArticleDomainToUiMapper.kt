@@ -2,7 +2,7 @@ package com.example.spaceflightapp.presentation.articles
 
 import com.example.spaceflightapp.domain.articles.ArticleDomainToUiMapper
 
-class BaseArticleDomainToUiMapper() : ArticleDomainToUiMapper<ArticleUi> {
+class BaseArticleDomainToUiMapper : ArticleDomainToUiMapper<ArticleUi> {
     override fun map(
         idA: Int,
         titleA: String,
