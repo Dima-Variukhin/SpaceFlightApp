@@ -15,4 +15,8 @@
     <string name="please_wait">Loading…</string>
     <string name="settings">Settings</string>
     <string name="back_again_to_exit">Click again to return on news page</string>
+    <string name="astra_plans">Astra plans next orbital launch attempt from Alasks</string>
+    <string name="together_na">Together, NASA and SpaceX have successfully executed similarly bold and innovative partnerships, including restoring Americaâs ability to launch astronauts to orbit and return them safely home. \nWe will build upon our shared accomplishments</string>
+    <string name="spaceflight">SpaceFlight Now</string>
+    <string name="april_2020">19april ,2020</string>
 </resources>
