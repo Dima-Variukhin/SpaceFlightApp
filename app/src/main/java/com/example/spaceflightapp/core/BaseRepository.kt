@@ -2,7 +2,7 @@ package com.example.spaceflightapp.core
 
 import io.realm.RealmObject
 
-interface BaseRepository<E : Abstract.DataObject> { //todo fix cache
+interface BaseRepository<E : Abstract.DataObject> { //todo fix caches
     suspend fun fetchData(): E
     suspend fun update(): E
     abstract class Base<T : RealmObject,
