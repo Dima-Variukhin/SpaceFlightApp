@@ -9,7 +9,7 @@ interface Communication<T> {
     fun observe(owner: LifecycleOwner, observer: Observer<T>)
 
     abstract class Base<T : Any> : Communication<T> {
-        protected val liveData = MutableLiveData<T>()
+        private val liveData = MutableLiveData<T>()
         override fun map(data: T) {
             liveData.value = data
         }

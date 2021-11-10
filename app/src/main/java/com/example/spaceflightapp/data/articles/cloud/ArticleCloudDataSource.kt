@@ -6,8 +6,10 @@ import com.google.gson.reflect.TypeToken
 interface ArticleCloudDataSource {
     suspend fun fetchArticles(): List<ArticleCloud>
 
-    class Base(private val service: ArticleService, private val gson: Gson) :
-        ArticleCloudDataSource {
+    class Base(
+        private val service: ArticleService,
+        private val gson: Gson
+    ) : ArticleCloudDataSource {
         override suspend fun fetchArticles(): List<ArticleCloud> = gson.fromJson(
             service.fetchArticles().string(),
             object : TypeToken<List<ArticleCloud.Base>>() {}.type

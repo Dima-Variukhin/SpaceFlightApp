@@ -14,5 +14,6 @@ interface ResourceProvider : PreferencesProvider {
 
         override fun provideSharedPreferences(name: String): SharedPreferences =
             context.getSharedPreferences(name, Context.MODE_PRIVATE)
+
     }
 }

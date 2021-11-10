@@ -7,8 +7,11 @@ import com.example.spaceflightapp.presentation.articles.ArticlesFragment
 import com.example.spaceflightapp.presentation.articles.ArticlesNavigator
 import com.example.spaceflightapp.presentation.blogs.BlogsFragment
 import com.example.spaceflightapp.presentation.blogs.BlogsNavigator
+import com.example.spaceflightapp.presentation.reports.ReportsFragment
+import com.example.spaceflightapp.presentation.reports.ReportsNavigator
 
-interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator, BlogsNavigator {
+interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator, BlogsNavigator,
+    ReportsNavigator {
     class Base(preferencesProvider: PreferencesProvider) : Navigator {
         private val sharedPreferences by lazy {
             preferencesProvider.provideSharedPreferences(getFileName())
@@ -16,7 +19,8 @@ interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator, Bl
 
         private val screens = listOf(
             ArticlesFragment::class.java,
-            BlogsFragment::class.java
+            BlogsFragment::class.java,
+            ReportsFragment::class.java
         )
 
         override fun read() = sharedPreferences.getInt(getCurrentScreenKey(), 0)
@@ -29,6 +33,7 @@ interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator, Bl
 
         override fun saveArticleScreen() = save(ARTICLES_SCREEN)
         override fun saveBlogScreen() = save(BLOGS_SCREEN)
+        override fun saveReportScreen() = save(REPORTS_SCREEN)
 
         private fun getFileName() = NAVIGATOR_FILE_NAME
         private fun getCurrentScreenKey() = CURRENT_SCREEN_KEY
@@ -38,6 +43,7 @@ interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator, Bl
             const val CURRENT_SCREEN_KEY = "screenId"
             const val ARTICLES_SCREEN = 0
             const val BLOGS_SCREEN = 1
+            const val REPORTS_SCREEN = 2
         }
     }
 }

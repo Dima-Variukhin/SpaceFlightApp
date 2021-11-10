@@ -1,4 +1,4 @@
-package com.example.spaceflightapp.presentation.blogs
+package com.example.spaceflightapp.presentation.reports
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,25 +11,25 @@ import com.example.spaceflightapp.core.Retry
 import com.example.spaceflightapp.presentation.BaseFragment
 
 
-class BlogsFragment : BaseFragment<BlogsViewModel>() {
-    override fun viewModelClass() = BlogsViewModel::class.java
+class ReportsFragment : BaseFragment<ReportsViewModel>() {
+    override fun viewModelClass() = ReportsViewModel::class.java
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        val adapter = BlogAdapter(object : Retry {
-            override fun tryAgain() = viewModel.fetchBlogs()
-        }, object : ClickListener<BlogUi> {
-            override fun click(item: BlogUi) = item.open(viewModel)
+        val adapter = ReportAdapter(object : Retry {
+            override fun tryAgain() = viewModel.fetchReports()
+        }, object : ClickListener<ReportUi> {
+            override fun click(item: ReportUi) = item.open(viewModel)
         })
         setAdapter(adapter)
         viewModel.observe(this) {
             it.map(adapter)
         }
-        viewModel.initBlog()
+        viewModel.initReports()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.main, menu)
+        return inflater.inflate(R.menu.main, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

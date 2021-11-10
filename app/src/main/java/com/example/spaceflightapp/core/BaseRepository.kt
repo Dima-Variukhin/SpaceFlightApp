@@ -1,9 +1,8 @@
 package com.example.spaceflightapp.core
 
-import android.util.Log
 import io.realm.RealmObject
 
-interface BaseRepository<E : Abstract.DataObject> {
+interface BaseRepository<E : Abstract.DataObject> { //todo fix cache
     suspend fun fetchData(): E
     suspend fun update(): E
     abstract class Base<T : RealmObject,
@@ -22,7 +21,7 @@ interface BaseRepository<E : Abstract.DataObject> {
                 cacheDataSource.save(list)
                 returnSuccess(list)
             } else {
-                returnSuccess((cacheMapper.map(cachedList)))
+                returnSuccess(cacheMapper.map(cachedList))
             }
         } catch (e: Exception) {
             returnFail(e)

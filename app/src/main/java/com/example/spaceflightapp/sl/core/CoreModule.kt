@@ -27,6 +27,7 @@ class CoreModule : BaseModule<MainViewModel> {
     lateinit var mainNavigator: MainNavigator
     lateinit var screenPosition: ScreenPosition
 
+
     fun init(context: Context) {
         Realm.init(context)
         val client = OkHttpClient.Builder()
@@ -48,6 +49,7 @@ class CoreModule : BaseModule<MainViewModel> {
         navigationCommunication = NavigationCommunication.Base()
         navigationCommunicationWeb = NavigationCommunicationWeb.Base()
         screenPosition = ScreenPosition.Base(navigator)
+
     }
 
     fun <T> makeService(clazz: Class<T>): T = retrofit.create(clazz)

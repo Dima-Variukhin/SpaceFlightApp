@@ -1,30 +1,31 @@
-package com.example.spaceflightapp.presentation.articles
+package com.example.spaceflightapp.presentation.reports
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.example.spaceflightapp.core.ResourceProvider
 import com.example.spaceflightapp.core.Show
-import com.example.spaceflightapp.domain.articles.ArticlesDomainToUiMapper
-import com.example.spaceflightapp.domain.articles.ArticlesInteractor
+import com.example.spaceflightapp.domain.reports.ReportsDomainToUiMapper
+import com.example.spaceflightapp.domain.reports.ReportsInteractor
 import com.example.spaceflightapp.presentation.BaseViewModel
 import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ArticlesViewModel(
-    private val articlesInteractor: ArticlesInteractor,
-    private val mapper: ArticlesDomainToUiMapper<ArticlesUi>,
-    private val communication: ArticlesCommunication,
-    private val navigator: ArticlesNavigator,
+
+class ReportsViewModel(
+    private val reportsInteractor: ReportsInteractor,
+    private val mapper: ReportsDomainToUiMapper<ReportsUi>,
+    private val communication: ReportsCommunication,
+    private val navigator: ReportsNavigator,
     private val navigationCommunicationWeb: NavigationCommunicationWeb,
     resourceProvider: ResourceProvider,
 ) : BaseViewModel(), Show {
-    fun fetchArticles() {
-        communication.map(ArticlesUi.Base(ArrayList(listOf(ArticleUi.Progress))))
+    fun fetchReports() {
+        communication.map(ReportsUi.Base(ArrayList(listOf(ReportUi.Progress))))
         viewModelScope.launch(Dispatchers.IO) {
-            val resultDomain = articlesInteractor.fetchArticles()
+            val resultDomain = reportsInteractor.fetchReports()
             val resultUi = resultDomain.map(mapper)
             withContext(Dispatchers.Main) {
                 communication.map(resultUi)
@@ -33,9 +34,9 @@ class ArticlesViewModel(
     }
 
     fun update() {
-        communication.map(ArticlesUi.Base(ArrayList(listOf(ArticleUi.Progress))))
+        communication.map(ReportsUi.Base(ArrayList(listOf(ReportUi.Progress))))
         viewModelScope.launch(Dispatchers.IO) {
-            val resultDomain = articlesInteractor.update()
+            val resultDomain = reportsInteractor.update()
             val resultUi = resultDomain.map(mapper)
             withContext(Dispatchers.Main) {
                 communication.map(resultUi)
@@ -43,13 +44,13 @@ class ArticlesViewModel(
         }
     }
 
-    fun observe(owner: LifecycleOwner, observer: Observer<ArticlesUi>) {
+    fun observe(owner: LifecycleOwner, observer: Observer<ReportsUi>) {
         communication.observe(owner, observer)
     }
 
-    fun initArticles() {
-        navigator.saveArticleScreen()
-        fetchArticles()
+    fun initReports() {
+        navigator.saveReportScreen()
+        fetchReports()
     }
 
     override fun open(data: String) {

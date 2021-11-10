@@ -5,14 +5,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.spaceflightapp.MainViewModel
 import com.example.spaceflightapp.presentation.articles.ArticlesViewModel
 import com.example.spaceflightapp.presentation.blogs.BlogsViewModel
+import com.example.spaceflightapp.presentation.reports.ReportsViewModel
 import java.lang.IllegalStateException
 
 class ViewModelsFactory(private val dependencyContainer: DependencyContainer) :
     ViewModelProvider.Factory {
-    private val map = HashMap<Class<*>, Feature>(3).apply {
+    private val map = HashMap<Class<*>, Feature>(4).apply {
         put(MainViewModel::class.java, Feature.MAIN)
         put(ArticlesViewModel::class.java, Feature.ARTICLES)
         put(BlogsViewModel::class.java, Feature.BLOGS)
+        put(ReportsViewModel::class.java, Feature.REPORTS)
     }
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

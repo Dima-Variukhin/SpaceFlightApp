@@ -8,7 +8,6 @@ import com.example.spaceflightapp.core.Show
 import com.example.spaceflightapp.domain.blogs.BlogsDomainToUiMapper
 import com.example.spaceflightapp.domain.blogs.BlogsInteractor
 import com.example.spaceflightapp.presentation.BaseViewModel
-import com.example.spaceflightapp.presentation.NavigationCommunication
 import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -48,7 +47,7 @@ class BlogsViewModel(
         communication.observe(owner, observer)
     }
 
-    fun init() {
+    fun initBlog() {
         navigator.saveBlogScreen()
         fetchBlogs()
     }

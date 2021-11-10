@@ -25,14 +25,14 @@ class CustomTextView : AppCompatTextView, AdapterNewsMapper<Unit> {
     )
 
     override fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
     ) = setText("")
 
     override fun map(message: String) = setText(message)
@@ -54,15 +54,15 @@ class CustomTextViewTitle : AppCompatTextView, AdapterNewsMapper<Unit> {
     )
 
     override fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
-    ) = setText(titleA)
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
+    ) = setText(title)
 
     override fun map(message: String) = setText(message)
     //endregion
@@ -83,15 +83,15 @@ class CustomTextViewSummary : AppCompatTextView, AdapterNewsMapper<Unit> {
     )
 
     override fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
-    ) = setText(summaryA)
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
+    ) = setText(summary)
 
     override fun map(message: String) = setText(message)
     //endregion
@@ -112,15 +112,15 @@ class CustomTextViewNews : AppCompatTextView, AdapterNewsMapper<Unit> {
     )
 
     override fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
-    ) = setText(newsSiteA)
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
+    ) = setText(newsSite)
 
     override fun map(message: String) = setText(message)
     //endregion
@@ -141,15 +141,15 @@ class CustomTextViewPublished : AppCompatTextView, AdapterNewsMapper<Unit> {
     )
 
     override fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
-    ) = setText(publishedAtA)
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
+    ) = setText(publishedAt)
 
     override fun map(message: String) = setText(message)
     //endregion
@@ -170,15 +170,15 @@ class CustomTextViewUpdated : AppCompatTextView, AdapterNewsMapper<Unit> {
     )
 
     override fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
-    ) = setText(updatedAtA)
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
+    ) = setText(updatedAt)
 
     override fun map(message: String) = setText(message)
     //endregion
@@ -199,19 +199,20 @@ class CustomImageView : AppCompatImageView, AdapterNewsMapper<Unit> {
     )
 
     override fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
     ) {
         Glide.with(context)
-            .load(imageUrlA)
+            .load(imageUrl)
             .placeholder(R.drawable.baseline_hourglass_bottom_24)
             .error(com.google.android.material.R.drawable.mtrl_ic_error)
+            .optionalCenterCrop()
             .into(this)
     }
 

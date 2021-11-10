@@ -1,5 +1,6 @@
 package com.example.spaceflightapp.core
 
+
 import io.realm.Realm
 
 interface RealmProvider {

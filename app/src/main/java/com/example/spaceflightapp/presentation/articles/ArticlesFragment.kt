@@ -24,7 +24,7 @@ class ArticlesFragment : BaseFragment<ArticlesViewModel>() {
         viewModel.observe(this) {
             it.map(adapter)
         }
-        viewModel.init()
+        viewModel.initArticles()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -37,6 +37,7 @@ class ArticlesFragment : BaseFragment<ArticlesViewModel>() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 
     private fun update() = viewModel.update()
 }
