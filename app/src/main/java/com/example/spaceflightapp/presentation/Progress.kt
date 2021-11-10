@@ -1,4 +1,4 @@
-package com.example.spaceflightapp
+package com.example.spaceflightapp.presentation
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.StringRes
+import com.example.spaceflightapp.R
 
 class Progress constructor(
     context: Context?,

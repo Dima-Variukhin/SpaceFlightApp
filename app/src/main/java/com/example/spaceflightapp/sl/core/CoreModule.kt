@@ -4,10 +4,7 @@ import android.content.Context
 import com.example.spaceflightapp.MainViewModel
 import com.example.spaceflightapp.core.RealmProvider
 import com.example.spaceflightapp.core.ResourceProvider
-import com.example.spaceflightapp.presentation.MainNavigator
-import com.example.spaceflightapp.presentation.NavigationCommunication
-import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
-import com.example.spaceflightapp.presentation.Navigator
+import com.example.spaceflightapp.presentation.*
 import com.google.gson.Gson
 import io.realm.Realm
 import okhttp3.OkHttpClient
@@ -28,6 +25,7 @@ class CoreModule : BaseModule<MainViewModel> {
     lateinit var navigationCommunication: NavigationCommunication
     lateinit var navigationCommunicationWeb: NavigationCommunicationWeb
     lateinit var mainNavigator: MainNavigator
+    lateinit var screenPosition: ScreenPosition
 
     fun init(context: Context) {
         Realm.init(context)
@@ -45,14 +43,19 @@ class CoreModule : BaseModule<MainViewModel> {
         gson = Gson()
         resourceProvider = ResourceProvider.Base(context)
         realmProvider = RealmProvider.Base()
+        mainNavigator = Navigator.Base(resourceProvider)
         navigator = Navigator.Base(resourceProvider)
         navigationCommunication = NavigationCommunication.Base()
         navigationCommunicationWeb = NavigationCommunicationWeb.Base()
-
-
+        screenPosition = ScreenPosition.Base(navigator)
     }
 
     fun <T> makeService(clazz: Class<T>): T = retrofit.create(clazz)
     override fun viewModel() =
-        MainViewModel(navigator, navigationCommunication, navigationCommunicationWeb)
+        MainViewModel(
+            screenPosition,
+            mainNavigator,
+            navigationCommunication,
+            navigationCommunicationWeb
+        )
 }

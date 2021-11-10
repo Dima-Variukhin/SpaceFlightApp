@@ -1,7 +1,5 @@
 package com.example.spaceflightapp.presentation.articles
 
-
-
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
@@ -10,6 +8,7 @@ import com.example.spaceflightapp.core.Show
 import com.example.spaceflightapp.domain.articles.ArticlesDomainToUiMapper
 import com.example.spaceflightapp.domain.articles.ArticlesInteractor
 import com.example.spaceflightapp.presentation.BaseViewModel
+import com.example.spaceflightapp.presentation.NavigationCommunication
 import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

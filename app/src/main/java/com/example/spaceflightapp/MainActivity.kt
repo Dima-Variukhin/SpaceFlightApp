@@ -1,14 +1,11 @@
 package com.example.spaceflightapp
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.KeyEvent
-import android.view.View
+import android.view.*
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -18,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
 import com.example.spaceflightapp.core.SpaceFlightApp
-import com.example.spaceflightapp.presentation.articles.BaseFragment
+import com.example.spaceflightapp.presentation.Progress
+import com.example.spaceflightapp.presentation.BaseFragment
 import com.google.android.material.tabs.TabLayout
 
 
@@ -35,8 +33,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = getViewModel(MainViewModel::class.java, this)
+        setSupportActionBar(findViewById(R.id.toolbar))
 
+        viewModel = getViewModel(MainViewModel::class.java, this)
         val settings = findViewById<WebView>(R.id.webView).settings
         settings.javaScriptEnabled = true
         settings.allowFileAccess = true
@@ -45,20 +44,20 @@ class MainActivity : AppCompatActivity() {
         settings.supportMultipleWindows()
         progress = Progress(this, R.string.please_wait, cancelable = true)
 
-
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
         val tabChosen: (Int) -> Unit = { position ->
             viewModel.save(position)
         }
         tabLayout.addOnTabSelectedListener(TabListener(tabChosen))
-        viewModel.observe(this) {
-            tabLayout.getTabAt(it)?.select()
-            navigate(viewModel.getFragment(it))
+        viewModel.observe(this) { id ->
+            tabLayout.getTabAt(id)?.select()
+            navigate(viewModel.getFragment(id))
         }
         viewModel.observeWeb(this) {
             loadWebView(it)
         }
         viewModel.init()
+
     }
 
     private fun navigate(fragment: BaseFragment<*>) = with(supportFragmentManager) {
@@ -78,14 +77,7 @@ class MainActivity : AppCompatActivity() {
                 request: WebResourceRequest?
             ): Boolean {
                 val url = request?.url.toString()
-                if (url.startsWith("tel:") || url.startsWith("whatsapp:")) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                    startActivity(intent)
-                    webView.goBack()
-                    return true
-                } else {
-                    view?.loadUrl(url)
-                }
+                view?.loadUrl(url)
                 return super.shouldOverrideUrlLoading(view, request)
             }
 

@@ -57,14 +57,14 @@ interface FromUi<T : FromUi<T>> : Abstract.Object<Unit, AdapterNewsMapper<Unit>>
 
 interface AdapterNewsMapper<T> : Abstract.Mapper {
     fun map(
-        idA: Int,
-        titleA: String,
-        urlA: String,
-        imageUrlA: String,
-        newsSiteA: String,
-        summaryA: String,
-        publishedAtA: String,
-        updatedAtA: String
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
     ): T
 
     fun map(message: String)

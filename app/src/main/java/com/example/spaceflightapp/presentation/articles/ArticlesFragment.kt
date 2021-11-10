@@ -8,10 +8,10 @@ import android.view.View
 import com.example.spaceflightapp.R
 import com.example.spaceflightapp.core.ClickListener
 import com.example.spaceflightapp.core.Retry
+import com.example.spaceflightapp.presentation.BaseFragment
 
 class ArticlesFragment : BaseFragment<ArticlesViewModel>() {
     override fun viewModelClass() = ArticlesViewModel::class.java
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
@@ -25,7 +25,6 @@ class ArticlesFragment : BaseFragment<ArticlesViewModel>() {
             it.map(adapter)
         }
         viewModel.init()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

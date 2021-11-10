@@ -1,4 +1,4 @@
-package com.example.spaceflightapp.presentation.articles
+package com.example.spaceflightapp.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spaceflightapp.MainActivity
 import com.example.spaceflightapp.R
-import com.example.spaceflightapp.presentation.BaseViewModel
 
 abstract class BaseFragment<T : BaseViewModel> : Fragment() {
     protected lateinit var viewModel: T
