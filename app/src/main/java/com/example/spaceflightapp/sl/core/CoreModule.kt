@@ -24,6 +24,7 @@ class CoreModule : BaseModule<MainViewModel> {
     lateinit var navigator: Navigator
     lateinit var navigationCommunication: NavigationCommunication
     lateinit var navigationCommunicationWeb: NavigationCommunicationWeb
+    lateinit var navigationCommunicationShare: NavigationCommunicationShare
     lateinit var mainNavigator: MainNavigator
     lateinit var screenPosition: ScreenPosition
 
@@ -48,6 +49,7 @@ class CoreModule : BaseModule<MainViewModel> {
         navigator = Navigator.Base(resourceProvider)
         navigationCommunication = NavigationCommunication.Base()
         navigationCommunicationWeb = NavigationCommunicationWeb.Base()
+        navigationCommunicationShare = NavigationCommunicationShare.Base()
         screenPosition = ScreenPosition.Base(navigator)
 
     }
@@ -58,6 +60,7 @@ class CoreModule : BaseModule<MainViewModel> {
             screenPosition,
             mainNavigator,
             navigationCommunication,
-            navigationCommunicationWeb
+            navigationCommunicationWeb,
+            navigationCommunicationShare
         )
 }

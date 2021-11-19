@@ -4,5 +4,6 @@ enum class Feature {
     MAIN,
     ARTICLES,
     BLOGS,
-    REPORTS
+    REPORTS,
+    FAVORITES
 }

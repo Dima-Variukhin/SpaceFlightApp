@@ -11,7 +11,8 @@ class BaseBlogDataToDomainMapper : BlogDataToDomainMapper<BlogDomain> {
         newsSiteB: String,
         summaryB: String,
         publishedAtB: String,
-        updatedAtB: String
+        updatedAtB: String,
+
     ) = BlogDomain.Base(
         idB,
         titleB,
@@ -20,6 +21,6 @@ class BaseBlogDataToDomainMapper : BlogDataToDomainMapper<BlogDomain> {
         newsSiteB,
         summaryB,
         publishedAtB,
-        updatedAtB
+        updatedAtB,
     )
 }

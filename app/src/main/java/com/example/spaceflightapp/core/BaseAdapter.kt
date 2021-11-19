@@ -34,7 +34,6 @@ abstract class BaseViewHolder<E : FromUi<E>>(view: View) :
     RecyclerView.ViewHolder(view) {
     open fun bind(item: E) {}
 
-
     class FullScreenProgress<E : FromUi<E>>(view: View) : BaseViewHolder<E>(view)
 
     class Fail<E : FromUi<E>>(
@@ -64,7 +63,8 @@ interface AdapterNewsMapper<T> : Abstract.Mapper {
         newsSite: String,
         summary: String,
         publishedAt: String,
-        updatedAt: String
+        updatedAt: String,
+        data: String
     ): T
 
     fun map(message: String)

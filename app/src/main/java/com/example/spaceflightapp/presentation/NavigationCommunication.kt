@@ -25,3 +25,7 @@ interface NavigationCommunicationWeb : Communication<String> {
     class Base : Communication.Base<String>(), NavigationCommunicationWeb
 }
 
+interface NavigationCommunicationShare : Communication<String> {
+    class Base : Communication.Base<String>(), NavigationCommunicationShare
+}
+

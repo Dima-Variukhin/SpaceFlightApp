@@ -6,7 +6,9 @@ sealed class ReportUi : FromUi<ReportUi>, Match<Int>,
     Open {
     override fun matches(arg: Int) = false
     override fun open(show: Show) = Unit
+    override fun share(show: Show) = Unit
     override fun map(mapper: AdapterNewsMapper<Unit>) = Unit
+    override fun changeFavorite(show: Show) = Unit
 
     object Empty : ReportUi()
     object Progress : ReportUi()
@@ -19,10 +21,32 @@ sealed class ReportUi : FromUi<ReportUi>, Match<Int>,
         private val newsSiteR: String,
         private val summaryR: String,
         private val publishedAtR: String,
-        private val updatedAtR: String
+        private val updatedAtR: String,
+        private val data: String
     ) : ReportUi() {
         override fun map(mapper: AdapterNewsMapper<Unit>) =
-            mapper.map(idR, titleR, urlR, imageUrlR, newsSiteR, summaryR, publishedAtR, updatedAtR)
+            mapper.map(
+                idR,
+                titleR,
+                urlR,
+                imageUrlR,
+                newsSiteR,
+                summaryR,
+                publishedAtR,
+                updatedAtR,
+                data
+            )
+
+        override fun changeFavorite(show: Show) = show.changeFavorite(
+            idR,
+            titleR,
+            urlR,
+            imageUrlR,
+            newsSiteR,
+            summaryR,
+            publishedAtR,
+            updatedAtR
+        )
 
         override fun matches(arg: Int) = arg == idR
         override fun same(item: ReportUi) = item is Base && idR == item.idR

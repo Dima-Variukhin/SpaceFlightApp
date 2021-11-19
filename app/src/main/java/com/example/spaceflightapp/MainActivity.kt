@@ -59,6 +59,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.observeWeb(this) {
             loadWebView(it)
         }
+        viewModel.observeShare(this) {
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                putExtra(Intent.EXTRA_TEXT, it)
+                type = "text/plain"
+            }
+            startActivity(intent)
+        }
+
         viewModel.init()
     }
 

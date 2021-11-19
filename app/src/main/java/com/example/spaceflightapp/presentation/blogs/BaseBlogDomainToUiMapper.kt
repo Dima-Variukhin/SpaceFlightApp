@@ -11,6 +11,7 @@ class BaseBlogDomainToUiMapper : BlogDomainToUiMapper<BlogUi> {
         newsSiteB: String,
         summaryB: String,
         publishedAtB: String,
-        updatedAtB: String
-    ) = BlogUi.Base(idB, titleB, urlB, imageUrlB, newsSiteB, summaryB, publishedAtB, updatedAtB)
+        updatedAtB: String,
+        data : String
+    ) = BlogUi.Base(idB, titleB, urlB, imageUrlB, newsSiteB, summaryB, publishedAtB, updatedAtB, data)
 }

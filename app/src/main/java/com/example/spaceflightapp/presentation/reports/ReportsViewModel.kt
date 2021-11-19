@@ -8,6 +8,7 @@ import com.example.spaceflightapp.core.Show
 import com.example.spaceflightapp.domain.reports.ReportsDomainToUiMapper
 import com.example.spaceflightapp.domain.reports.ReportsInteractor
 import com.example.spaceflightapp.presentation.BaseViewModel
+import com.example.spaceflightapp.presentation.NavigationCommunicationShare
 import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,6 +21,7 @@ class ReportsViewModel(
     private val communication: ReportsCommunication,
     private val navigator: ReportsNavigator,
     private val navigationCommunicationWeb: NavigationCommunicationWeb,
+    private val navigationCommunicationShare: NavigationCommunicationShare,
     resourceProvider: ResourceProvider,
 ) : BaseViewModel(), Show {
     fun fetchReports() {
@@ -55,5 +57,33 @@ class ReportsViewModel(
 
     override fun open(data: String) {
         navigationCommunicationWeb.map(data)
+    }
+
+    override fun share(data: String) {
+        navigationCommunicationShare.map(data)
+    }
+
+    override fun changeFavorite(
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            reportsInteractor.changeFavorite(
+                id,
+                title,
+                url,
+                imageUrl,
+                newsSite,
+                summary,
+                publishedAt,
+                updatedAt,
+            )
+        }
     }
 }

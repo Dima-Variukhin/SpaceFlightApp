@@ -4,14 +4,14 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.example.spaceflightapp.presentation.*
-import com.example.spaceflightapp.presentation.articles.ArticlesNavigator
-import com.example.spaceflightapp.presentation.blogs.BlogsNavigator
+
 
 class MainViewModel(
     private val screenPosition: ScreenPosition,
     private val mainNavigator: MainNavigator,
     private val communication: NavigationCommunication,
-    private val communicationWeb: NavigationCommunicationWeb
+    private val communicationWeb: NavigationCommunicationWeb,
+    private val communicationShare: NavigationCommunicationShare
 ) : ViewModel() {
 
     fun init() {
@@ -31,11 +31,15 @@ class MainViewModel(
         communicationWeb.observe(owner, observer)
     }
 
+    fun observeShare(owner: LifecycleOwner, observer: Observer<String>) {
+        communicationShare.observe(owner, observer)
+
+    }
+
     private fun navigateTo(position: Int) {
         communication.navigateTo(position)
     }
 
     fun getFragment(id: Int) = mainNavigator.getFragment(id)
-
 }
 

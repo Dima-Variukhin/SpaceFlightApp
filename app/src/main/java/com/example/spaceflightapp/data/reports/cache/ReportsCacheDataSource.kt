@@ -5,7 +5,7 @@ import com.example.spaceflightapp.data.reports.ReportData
 import io.realm.Realm
 
 interface ReportCacheDataSource : CacheDataSource<ReportData>, Read<List<ReportDb>>,
-    Update<List<ReportData>> {
+    Delete {
     class Base(
         private val realmProvider: RealmProvider,
         private val mapper: ReportDataToDbMapper<ReportDb>
@@ -25,12 +25,9 @@ interface ReportCacheDataSource : CacheDataSource<ReportData>, Read<List<ReportD
             }
         }
 
-        override fun update(data: List<ReportData>) = realmProvider.provide().use { realm ->
+        override fun deleteAll() = realmProvider.provide().use { realm ->
             realm.executeTransaction {
-                it.deleteAll()
-                data.forEach { report ->
-                    report.map(mapper, ReportDbWrapper(it))
-                }
+                it.delete(ReportDb::class.java)
             }
         }
 

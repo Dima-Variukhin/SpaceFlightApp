@@ -19,4 +19,9 @@
     <string name="together_na">Together, NASA and SpaceX have successfully executed similarly bold and innovative partnerships, including restoring Americaâs ability to launch astronauts to orbit and return them safely home. \nWe will build upon our shared accomplishments</string>
     <string name="spaceflight">SpaceFlight Now</string>
     <string name="april_2020">19april ,2020</string>
+    <string name="share">share</string>
+    <string name="favorites">Favorites</string>
+    <string name="no_cache">Sorry i couldn\'t find the cache. Please click on heart icon to add one</string>
+    <string name="change_item_status">Change item status?</string>
+    <string name="yes">yes</string>
 </resources>

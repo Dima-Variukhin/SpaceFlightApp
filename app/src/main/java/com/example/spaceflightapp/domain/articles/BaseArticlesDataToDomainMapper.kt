@@ -5,6 +5,7 @@ import com.example.spaceflightapp.data.articles.ArticleDataToDomainMapper
 import com.example.spaceflightapp.data.articles.ArticlesDataToDomainMapper
 import java.lang.Exception
 
+
 class BaseArticlesDataToDomainMapper(private val articleMapper: ArticleDataToDomainMapper<ArticleDomain>) :
     ArticlesDataToDomainMapper<ArticlesDomain>() {
     override fun map(data: List<ArticleData>): ArticlesDomain {

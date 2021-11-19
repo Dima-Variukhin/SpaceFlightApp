@@ -11,6 +11,17 @@ class BaseArticleDomainToUiMapper : ArticleDomainToUiMapper<ArticleUi> {
         newsSiteA: String,
         summaryA: String,
         publishedAtA: String,
-        updatedAtA: String
-    ) = ArticleUi.Base(idA, titleA, urlA, imageUrlA, newsSiteA, summaryA, publishedAtA, updatedAtA)
+        updatedAtA: String,
+        data: String
+    ) = ArticleUi.Base(
+        idA,
+        titleA,
+        urlA,
+        imageUrlA,
+        newsSiteA,
+        summaryA,
+        publishedAtA,
+        updatedAtA,
+        data
+    )
 }

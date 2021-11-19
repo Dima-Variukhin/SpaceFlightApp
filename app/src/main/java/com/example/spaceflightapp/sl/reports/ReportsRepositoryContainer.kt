@@ -1,6 +1,8 @@
 package com.example.spaceflightapp.sl.reports
 
 import com.example.spaceflightapp.core.RepositoryContainer
+import com.example.spaceflightapp.data.favorites.cache.FavoriteCacheDataSource
+import com.example.spaceflightapp.data.favorites.cache.FavoriteDataToDbMapper
 import com.example.spaceflightapp.data.reports.ReportRepository
 import com.example.spaceflightapp.data.reports.ToReportMapper
 import com.example.spaceflightapp.data.reports.cache.ReportCacheDataSource
@@ -19,6 +21,7 @@ class ReportsRepositoryContainer(
         return ReportRepository.Base(
             reportsCloudDataSource(),
             reportsCacheDataSource(),
+            favoritesCacheDataSource(),
             ReportCloudMapper.Base(toReportMapper),
             ReportCacheMapper.Base(toReportMapper)
         )
@@ -26,6 +29,9 @@ class ReportsRepositoryContainer(
 
     private fun reportsCacheDataSource() =
         ReportCacheDataSource.Base(coreModule.realmProvider, ReportDataToDbMapper.Base())
+
+    private fun favoritesCacheDataSource() =
+        FavoriteCacheDataSource.Base(coreModule.realmProvider, FavoriteDataToDbMapper.Base())
 
     private fun reportsCloudDataSource() =
         ReportCloudDataSource.Base(reportsService(), coreModule.gson)

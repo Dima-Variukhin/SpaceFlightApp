@@ -5,7 +5,7 @@ import com.example.spaceflightapp.data.articles.ArticleData
 import io.realm.Realm
 
 interface ArticleCacheDataSource : CacheDataSource<ArticleData>, Read<List<ArticleDb>>,
-    Update<List<ArticleData>> {
+    Delete {
     class Base(
         private val realmProvider: RealmProvider,
         private val mapper: ArticleDataToDbMapper<ArticleDb>
@@ -25,12 +25,9 @@ interface ArticleCacheDataSource : CacheDataSource<ArticleData>, Read<List<Artic
             }
         }
 
-        override fun update(data: List<ArticleData>) = realmProvider.provide().use { realm ->
+        override fun deleteAll() = realmProvider.provide().use { realm ->
             realm.executeTransaction {
-                it.deleteAll()
-                data.forEach { article ->
-                    article.map(mapper, ArticleDbWrapper(it))
-                }
+                it.delete(ArticleDb::class.java)
             }
         }
 

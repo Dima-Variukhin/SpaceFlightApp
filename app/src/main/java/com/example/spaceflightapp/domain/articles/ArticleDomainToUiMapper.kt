@@ -11,6 +11,7 @@ interface ArticleDomainToUiMapper<T> : Abstract.Mapper {
         newsSiteA: String,
         summaryA: String,
         publishedAtA: String,
-        updatedAtA: String
+        updatedAtA: String,
+        data: String
     ): T
 }

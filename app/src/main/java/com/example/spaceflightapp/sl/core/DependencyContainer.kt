@@ -4,6 +4,8 @@ import com.example.spaceflightapp.sl.articles.ArticlesModule
 import com.example.spaceflightapp.sl.articles.ArticlesRepositoryContainer
 import com.example.spaceflightapp.sl.blogs.BlogsModule
 import com.example.spaceflightapp.sl.blogs.BlogsRepositoryContainer
+import com.example.spaceflightapp.sl.favorites.FavoritesModule
+import com.example.spaceflightapp.sl.favorites.FavoritesRepositoryContainer
 import com.example.spaceflightapp.sl.reports.ReportsModule
 import com.example.spaceflightapp.sl.reports.ReportsRepositoryContainer
 
@@ -16,10 +18,12 @@ interface DependencyContainer {
             Feature.ARTICLES -> ArticlesModule(coreModule, articlesRepository())
             Feature.BLOGS -> BlogsModule(coreModule, blogsRepository())
             Feature.REPORTS -> ReportsModule(coreModule, reportsRepository())
+            Feature.FAVORITES -> FavoritesModule(coreModule, favoritesRepository())
         }
 
         private fun articlesRepository() = ArticlesRepositoryContainer(coreModule).repository()
         private fun blogsRepository() = BlogsRepositoryContainer(coreModule).repository()
         private fun reportsRepository() = ReportsRepositoryContainer(coreModule).repository()
+        private fun favoritesRepository() = FavoritesRepositoryContainer(coreModule).repository()
     }
 }

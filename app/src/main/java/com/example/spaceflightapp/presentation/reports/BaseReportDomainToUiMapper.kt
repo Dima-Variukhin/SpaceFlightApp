@@ -11,6 +11,7 @@ class BaseReportDomainToUiMapper : ReportDomainToUiMapper<ReportUi> {
         newsSiteR: String,
         summaryR: String,
         publishedAtR: String,
-        updatedAtR: String
-    ) = ReportUi.Base(idR, titleR, urlR, imageUrlR, newsSiteR, summaryR, publishedAtR, updatedAtR)
+        updatedAtR: String,
+        data: String
+    ) = ReportUi.Base(idR, titleR, urlR, imageUrlR, newsSiteR, summaryR, publishedAtR, updatedAtR, data)
 }

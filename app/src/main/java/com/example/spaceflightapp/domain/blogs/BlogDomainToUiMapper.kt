@@ -11,6 +11,7 @@ interface BlogDomainToUiMapper<T> : Abstract.Mapper {
         newsSiteB: String,
         summaryB: String,
         publishedAtB: String,
-        updatedAtB: String
+        updatedAtB: String,
+        data: String
     ): T
 }

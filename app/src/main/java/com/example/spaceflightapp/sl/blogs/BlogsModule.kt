@@ -22,6 +22,7 @@ class BlogsModule(
             communication(),
             coreModule.navigator,
             coreModule.navigationCommunicationWeb,
+            coreModule.navigationCommunicationShare,
             coreModule.resourceProvider
         )
     }

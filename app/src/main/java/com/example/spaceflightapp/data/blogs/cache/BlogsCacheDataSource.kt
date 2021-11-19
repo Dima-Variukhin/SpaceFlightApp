@@ -5,7 +5,7 @@ import com.example.spaceflightapp.data.blogs.BlogData
 import io.realm.Realm
 
 interface BlogsCacheDataSource : CacheDataSource<BlogData>, Read<List<BlogDb>>,
-    Update<List<BlogData>> {
+    Delete {
     class Base(
         private val realmProvider: RealmProvider,
         private val mapper: BlogDataToDbMapper<BlogDb>
@@ -25,12 +25,9 @@ interface BlogsCacheDataSource : CacheDataSource<BlogData>, Read<List<BlogDb>>,
             }
         }
 
-        override fun update(data: List<BlogData>) = realmProvider.provide().use { realm ->
+        override fun deleteAll() = realmProvider.provide().use { realm ->
             realm.executeTransaction {
-                it.deleteAll()
-                data.forEach { blog ->
-                    blog.map(mapper, BlogDbWrapper(it))
-                }
+                it.delete(BlogDb::class.java)
             }
         }
 

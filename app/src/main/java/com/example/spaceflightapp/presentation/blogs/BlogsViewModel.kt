@@ -8,6 +8,7 @@ import com.example.spaceflightapp.core.Show
 import com.example.spaceflightapp.domain.blogs.BlogsDomainToUiMapper
 import com.example.spaceflightapp.domain.blogs.BlogsInteractor
 import com.example.spaceflightapp.presentation.BaseViewModel
+import com.example.spaceflightapp.presentation.NavigationCommunicationShare
 import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ class BlogsViewModel(
     private val communication: BlogsCommunication,
     private val navigator: BlogsNavigator,
     private val navigationCommunicationWeb: NavigationCommunicationWeb,
+    private val navigationCommunicationShare: NavigationCommunicationShare,
     resourceProvider: ResourceProvider,
 ) : BaseViewModel(), Show {
     fun fetchBlogs() {
@@ -54,5 +56,33 @@ class BlogsViewModel(
 
     override fun open(data: String) {
         navigationCommunicationWeb.map(data)
+    }
+
+    override fun share(data: String) {
+        navigationCommunicationShare.map(data)
+    }
+
+    override fun changeFavorite(
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            blogsInteractor.changeFavorite(
+                id,
+                title,
+                url,
+                imageUrl,
+                newsSite,
+                summary,
+                publishedAt,
+                updatedAt,
+            )
+        }
     }
 }

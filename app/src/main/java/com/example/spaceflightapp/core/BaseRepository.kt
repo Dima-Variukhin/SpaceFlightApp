@@ -2,16 +2,27 @@ package com.example.spaceflightapp.core
 
 import io.realm.RealmObject
 
-interface BaseRepository<E : Abstract.DataObject> { //todo fix caches
+interface BaseRepository<E : Abstract.DataObject> {
     suspend fun fetchData(): E
     suspend fun update(): E
+    suspend fun changeFavorite(
+        id: Int,
+        title: String,
+        url: String,
+        imageUrl: String,
+        newsSite: String,
+        summary: String,
+        publishedAt: String,
+        updatedAt: String,
+    )
+
     abstract class Base<T : RealmObject,
             C : Abstract.CloudObject,
             D : Abstract.DataObject,
             E : Abstract.DataObject>(
         private val cacheDataSource: CacheDataSource<D>,
         private val cloudMapper: Abstract.Mapper.Data<List<C>, List<D>>,
-        private val cacheMapper: Abstract.Mapper.Data<List<T>, List<D>>
+        private val cacheMapper: Abstract.Mapper.Data<List<T>, List<D>>,
     ) : BaseRepository<E> {
         override suspend fun fetchData() = try {
             val cachedList = getCachedDataList()
@@ -27,12 +38,12 @@ interface BaseRepository<E : Abstract.DataObject> { //todo fix caches
             returnFail(e)
         }
 
-        //override suspend fun delete() = cacheDataSource.delete()
 
         override suspend fun update() = try {
             val cloudList = fetchCloudData()
             val list = cloudMapper.map(cloudList)
-            cacheDataSource.update(list)
+            cacheDataSource.deleteAll()
+            cacheDataSource.save(list)
             returnSuccess(list)
         } catch (e: Exception) {
             returnFail(e)

@@ -1,5 +1,8 @@
 package com.example.spaceflightapp.domain.articles
 
+import java.text.SimpleDateFormat
+import java.util.*
+
 sealed class ArticleDomain {
     abstract fun <T> map(mapper: ArticleDomainToUiMapper<T>): T
 
@@ -13,7 +16,19 @@ sealed class ArticleDomain {
         private val publishedAtA: String,
         private val updatedAtA: String
     ) : ArticleDomain() {
+        private val sdf = SimpleDateFormat("dd/M hh:mm:ss", Locale.ENGLISH)
+        private val currentDate = sdf.format(Date())
         override fun <T> map(mapper: ArticleDomainToUiMapper<T>) =
-            mapper.map(idA, titleA, urlA, imageUrlA, newsSiteA, summaryA, publishedAtA, updatedAtA)
+            mapper.map(
+                idA,
+                titleA,
+                urlA,
+                imageUrlA,
+                newsSiteA,
+                summaryA,
+                publishedAtA,
+                updatedAtA,
+                currentDate
+            )
     }
 }

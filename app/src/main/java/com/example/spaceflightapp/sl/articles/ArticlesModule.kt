@@ -22,6 +22,7 @@ class ArticlesModule(
             communication(),
             coreModule.navigator,
             coreModule.navigationCommunicationWeb,
+            coreModule.navigationCommunicationShare,
             coreModule.resourceProvider
         )
     }

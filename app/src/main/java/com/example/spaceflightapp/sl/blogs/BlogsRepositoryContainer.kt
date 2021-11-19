@@ -9,6 +9,8 @@ import com.example.spaceflightapp.data.blogs.cache.BlogsCacheDataSource
 import com.example.spaceflightapp.data.blogs.cloud.BlogCloudMapper
 import com.example.spaceflightapp.data.blogs.cloud.BlogService
 import com.example.spaceflightapp.data.blogs.cloud.BlogsCloudDataSource
+import com.example.spaceflightapp.data.favorites.cache.FavoriteCacheDataSource
+import com.example.spaceflightapp.data.favorites.cache.FavoriteDataToDbMapper
 import com.example.spaceflightapp.sl.core.CoreModule
 
 class BlogsRepositoryContainer(
@@ -19,6 +21,7 @@ class BlogsRepositoryContainer(
         return BlogRepository.Base(
             blogsCloudDataSource(),
             blogsCacheDataSource(),
+            favoritesCacheDataSource(),
             BlogCloudMapper.Base(toBlogMapper),
             BlogCacheMapper.Base(toBlogMapper)
         )
@@ -26,6 +29,8 @@ class BlogsRepositoryContainer(
 
     private fun blogsCacheDataSource() =
         BlogsCacheDataSource.Base(coreModule.realmProvider, BlogDataToDbMapper.Base())
+    private fun favoritesCacheDataSource() =
+        FavoriteCacheDataSource.Base(coreModule.realmProvider, FavoriteDataToDbMapper.Base())
 
     private fun blogsCloudDataSource() =
         BlogsCloudDataSource.Base(blogsService(), coreModule.gson)

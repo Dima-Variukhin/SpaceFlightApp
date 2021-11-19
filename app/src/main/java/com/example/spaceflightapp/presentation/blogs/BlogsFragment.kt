@@ -9,6 +9,7 @@ import com.example.spaceflightapp.R
 import com.example.spaceflightapp.core.ClickListener
 import com.example.spaceflightapp.core.Retry
 import com.example.spaceflightapp.presentation.BaseFragment
+import com.google.android.material.snackbar.Snackbar
 
 
 class BlogsFragment : BaseFragment<BlogsViewModel>() {
@@ -20,6 +21,18 @@ class BlogsFragment : BaseFragment<BlogsViewModel>() {
             override fun tryAgain() = viewModel.fetchBlogs()
         }, object : ClickListener<BlogUi> {
             override fun click(item: BlogUi) = item.open(viewModel)
+        }, object : ClickListener<BlogUi> {
+            override fun click(item: BlogUi) = item.share(viewModel)
+        }, object : ClickListener<BlogUi> {
+            override fun click(item: BlogUi) {
+                Snackbar.make(
+                    view,
+                    R.string.change_item_status,
+                    Snackbar.LENGTH_SHORT
+                ).setAction(R.string.yes) {
+                    item.changeFavorite(viewModel)
+                }.show()
+            }
         })
         setAdapter(adapter)
         viewModel.observe(this) {
@@ -38,7 +51,6 @@ class BlogsFragment : BaseFragment<BlogsViewModel>() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     private fun update() = viewModel.update()
 }
