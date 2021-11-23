@@ -19,14 +19,14 @@ class CoreModule : BaseModule<MainViewModel> {
 
     lateinit var resourceProvider: ResourceProvider
     lateinit var gson: Gson
-    lateinit var retrofit: Retrofit
+    private lateinit var retrofit: Retrofit
     lateinit var realmProvider: RealmProvider
     lateinit var navigator: Navigator
-    lateinit var navigationCommunication: NavigationCommunication
+    private lateinit var navigationCommunication: NavigationCommunication
     lateinit var navigationCommunicationWeb: NavigationCommunicationWeb
     lateinit var navigationCommunicationShare: NavigationCommunicationShare
-    lateinit var mainNavigator: MainNavigator
-    lateinit var screenPosition: ScreenPosition
+    private lateinit var mainNavigator: MainNavigator
+    private lateinit var screenPosition: ScreenPosition
 
 
     fun init(context: Context) {

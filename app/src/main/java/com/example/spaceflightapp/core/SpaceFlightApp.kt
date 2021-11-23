@@ -4,10 +4,10 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import com.example.spaceflightapp.di.DI
 import com.example.spaceflightapp.sl.core.CoreModule
 import com.example.spaceflightapp.sl.core.DependencyContainer
 import com.example.spaceflightapp.sl.core.ViewModelsFactory
-import java.security.acl.Owner
 
 class SpaceFlightApp : Application() {
     private val coreModule = CoreModule()
@@ -19,6 +19,7 @@ class SpaceFlightApp : Application() {
     override fun onCreate() {
         super.onCreate()
         coreModule.init(this)
+        DI.initialize(this)
     }
 
     fun <T : ViewModel> viewModel(modelClass: Class<T>, owner: ViewModelStoreOwner): T =

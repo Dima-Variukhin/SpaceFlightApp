@@ -1,15 +1,14 @@
 <resources>
-    <string name="app_name">SpaceFlightApp</string>
+    <string name="app_name">SpaceFlight</string>
     <string name="no_connection_message">No internet connection</string>
     <string name="service_unavailable_message">Service unavailable</string>
     <string name="something_went_wrong">something went wrong</string>
     <string name="try_again">TRY AGAIN</string>
     <string name="delete">delete data</string>
     <string name="update">Update data</string>
-    <string name="articles">ARTICLES</string>
-    <string name="blogs">BLOGS</string>
-    <string name="reports">REPORTS</string>
-
+    <string name="articles">ARTICLE</string>
+    <string name="blogs">BLOG</string>
+    <string name="reports">REPORT</string>
 
 
     <string name="please_wait">Loading…</string>
@@ -21,7 +20,29 @@
     <string name="april_2020">19april ,2020</string>
     <string name="share">share</string>
     <string name="favorites">Favorites</string>
-    <string name="no_cache">Sorry i couldn\'t find the cache. Please click on heart icon to add one</string>
+    <string name="no_cache">Sorry i could\'t find the cache. Please click on heart icon to add one</string>
     <string name="change_item_status">Change item status?</string>
     <string name="yes">yes</string>
+    <string name="no_results">No Results</string>
+    <string name="search_results">Search Results</string>
+    <string name="no_connection">No connection to network. Please, check that and try again later.</string>
+    <string name="action_search">search</string>
+    <string name="service_unavailable">Service is unavailable. Try again later.</string>
+    <string name="invalid_input_message">Input data is invalid! Please type the year of launches (e.g. 2018)</string>
+    <string name="retry">retry</string>
+    <string name="mission_name"> %s </string>
+    <string name="flight_number">Flight N: %s</string>
+    <string name="launch_year">Launch year: %s</string>
+    <string name="launch_date">Launch date: %s</string>
+    <string name="rocket">Rocket info: %s</string>
+    <string name="ships">Ships:\n%s</string>
+    <string name="place">Launch place: %s</string>
+    <string name="launch_success">Launch Success</string>
+    <string name="details">%s</string>
+    <string name="pdf">PDF: %s</string>
+    <string name="tutorial">It\'s search screen. To find some information about SpaceX launches just type the
+        year in the action bar.
+    </string>
+    <string name="or_tap_back_to_return_on_the_main_screen">Or tap back to return on the news screen</string>
+    <string name="last_attempt_to_update">Last attempt to update :</string>
 </resources>

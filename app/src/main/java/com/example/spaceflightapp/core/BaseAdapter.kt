@@ -26,7 +26,7 @@ abstract class BaseAdapter<E : FromUi<E>, T : BaseViewHolder<E>> :
         holder.bind(list[position])
     }
 
-    protected fun Int.makeView(parent: ViewGroup) =
+    protected fun Int.makeView(parent: ViewGroup): View =
         LayoutInflater.from(parent.context).inflate(this, parent, false)
 }
 
@@ -40,10 +40,10 @@ abstract class BaseViewHolder<E : FromUi<E>>(view: View) :
         view: View,
         private val retry: Retry
     ) : BaseViewHolder<E>(view) {
-        private val message = itemView.findViewById<CustomTextView>(R.id.messageTextView)
+     //   private val message = itemView.findViewById<CustomTextView>(R.id.messageTextView)
         private val button = itemView.findViewById<FloatingActionButton>(R.id.tryAgainButton)
         override fun bind(item: E) {
-            item.map(message)
+           // item.map(message)
             button.setOnClickListener {
                 retry.tryAgain()
             }

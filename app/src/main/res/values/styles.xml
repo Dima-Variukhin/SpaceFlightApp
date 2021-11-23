@@ -6,7 +6,7 @@
             22sp
         </item>
         <item name="android:textColor">
-            #2B1E12
+            #01030A
         </item>
     </style>
 
@@ -35,5 +35,41 @@
         <item name="android:textColor">
             #2B1E12
         </item>
+    </style>
+
+    <style name="it_s_a_sear">
+
+        <item name="android:textSize">
+            22sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+    <style name="mision_name">
+
+        <item name="android:textSize">
+            22sp
+        </item>
+
+        <item name="android:textColor">
+            #01030A
+        </item>
+
+    </style>
+
+    <style name="no_conectio">
+
+        <item name="android:textSize">
+            22sp
+        </item>
+
+        <item name="android:textColor">
+            #6788FF
+        </item>
+
     </style>
 </resources>

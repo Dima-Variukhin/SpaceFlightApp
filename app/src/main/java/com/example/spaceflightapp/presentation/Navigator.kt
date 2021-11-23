@@ -20,10 +20,10 @@ interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator, Bl
         }
 
         private val screens = listOf(
+            FavoritesFragment::class.java,
             ArticlesFragment::class.java,
             BlogsFragment::class.java,
-            ReportsFragment::class.java,
-            FavoritesFragment::class.java
+            ReportsFragment::class.java
         )
 
         override fun read() = sharedPreferences.getInt(getCurrentScreenKey(), 0)
@@ -45,10 +45,10 @@ interface Navigator : Save<Int>, Read<Int>, MainNavigator, ArticlesNavigator, Bl
         private companion object {
             const val NAVIGATOR_FILE_NAME = "navigation"
             const val CURRENT_SCREEN_KEY = "screenId"
-            const val ARTICLES_SCREEN = 0
+            const val FAVORITES_SCREEN = 0
             const val BLOGS_SCREEN = 1
             const val REPORTS_SCREEN = 2
-            const val FAVORITES_SCREEN = 3
+            const val ARTICLES_SCREEN = 3
         }
     }
 }

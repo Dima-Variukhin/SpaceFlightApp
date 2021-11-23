@@ -55,7 +55,5 @@ class ArticlesFragment : BaseFragment<ArticlesViewModel>() {
     private fun update() = viewModel.update()
 
     private companion object {
-        const val NOT = 0
-        const val ALREADY = 1
     }
 }

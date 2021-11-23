@@ -20,7 +20,7 @@ class FavoritesRepositoryContainer(
             favoritesCloudDataSource(),
             favoritesCacheDataSource(),
             FavoriteCacheMapper.Base(toFavoriteMapper),
-            FavoriteCloudMapper.Base(toFavoriteMapper),
+            FavoriteCloudMapper.Base(),
         )
     }
 

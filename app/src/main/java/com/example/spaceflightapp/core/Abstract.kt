@@ -51,3 +51,6 @@ abstract class Abstract {
         class Empty : Mapper
     }
 }
+
+class NetworkConnectionException(cause: Throwable? = null) : Exception(cause)
+class ServerUnavailableException : java.lang.Exception()

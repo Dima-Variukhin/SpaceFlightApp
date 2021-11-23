@@ -9,4 +9,5 @@
         android:iconTint="@color/white"
         android:title="@string/update"
         app:showAsAction="always" />
+
 </menu>

@@ -10,7 +10,6 @@ sealed class FavoriteUi : FromUi<FavoriteUi>, Match<Int>,
     override fun map(mapper: AdapterNewsMapper<Unit>) = Unit
     override fun changeFavorite(show: Show) = Unit
 
-    object Empty : FavoriteUi()
     object Progress : FavoriteUi()
 
     class Base(

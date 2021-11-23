@@ -10,7 +10,6 @@ sealed class ArticleUi : FromUi<ArticleUi>, Match<Int>,
     override fun map(mapper: AdapterNewsMapper<Unit>) = Unit
     override fun changeFavorite(show: Show) = Unit
 
-    object Empty : ArticleUi()
     object Progress : ArticleUi()
 
     class Base(
