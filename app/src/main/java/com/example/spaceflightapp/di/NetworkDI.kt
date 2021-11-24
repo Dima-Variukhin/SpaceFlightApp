@@ -9,19 +9,20 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object NetworkDI {
-    private const val BASE_URL = "https://api.spacexdata.com/v2/"
-    private lateinit var retrofit: Retrofit
+    private const val BASE_URL_SEARCH = "https://api.spacexdata.com/v2/"
+    private lateinit var retrofitSearch: Retrofit
 
-    fun initialize() {
-        retrofit = getRetrofit(getOkHttpClient(getInterceptor()))
+    fun initializeSearch() {
+        retrofitSearch = getRetrofitSearch(getOkHttpClient(getInterceptor()))
     }
 
-    fun <T> getService(className: Class<T>): T = retrofit.create(className)
+    fun <T> getServiceSearch(className: Class<T>): T = retrofitSearch.create(className)
 
-    private fun getRetrofit(client: OkHttpClient) =
+
+    private fun getRetrofitSearch(client: OkHttpClient) =
         Retrofit.Builder()
             .client(client)
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL_SEARCH)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()

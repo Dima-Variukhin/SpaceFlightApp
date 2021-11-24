@@ -37,5 +37,6 @@ class ArticlesModule(
         BaseArticleDomainToUiMapper()
     )
 
+
     private fun communication() = ArticlesCommunication.Base()
 }

@@ -3,6 +3,7 @@ package com.example.spaceflightapp.sl.core
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.spaceflightapp.MainViewModel
+import com.example.spaceflightapp.presentation.apod.ApodViewModel
 import com.example.spaceflightapp.presentation.articles.ArticlesViewModel
 import com.example.spaceflightapp.presentation.blogs.BlogsViewModel
 import com.example.spaceflightapp.presentation.favorites.FavoritesViewModel
@@ -11,12 +12,13 @@ import java.lang.IllegalStateException
 
 class ViewModelsFactory(private val dependencyContainer: DependencyContainer) :
     ViewModelProvider.Factory {
-    private val map = HashMap<Class<*>, Feature>(5).apply {
+    private val map = HashMap<Class<*>, Feature>(6).apply {
         put(MainViewModel::class.java, Feature.MAIN)
         put(ArticlesViewModel::class.java, Feature.ARTICLES)
         put(BlogsViewModel::class.java, Feature.BLOGS)
         put(ReportsViewModel::class.java, Feature.REPORTS)
         put(FavoritesViewModel::class.java, Feature.FAVORITES)
+        put(ApodViewModel::class.java, Feature.APOD)
     }
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

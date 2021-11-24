@@ -3,7 +3,7 @@ package com.example.spaceflightapp.presentation.launches.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.spaceflightapp.di.MainScreenDI.getSearchResultsInteractor
+import com.example.spaceflightapp.di.MainSearchScreenDI.getSearchResultsInteractor
 import kotlinx.coroutines.launch
 
 class SearchResultsViewModel : ViewModel() {

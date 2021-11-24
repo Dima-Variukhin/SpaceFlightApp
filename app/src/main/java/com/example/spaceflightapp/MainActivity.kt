@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
 import com.example.spaceflightapp.core.SpaceFlightApp
@@ -57,12 +59,19 @@ class MainActivity : AppCompatActivity() {
     private fun navigate(fragment: BaseFragment<*>) = with(supportFragmentManager) {
         beginTransaction()
             .replace(R.id.container, fragment, fragment.name())
+            .setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.slide_out,
+                R.anim.fade_in
+            )
             .commit()
     }
 
     override fun onBackPressed() {
         val webView = findViewById<WebView>(R.id.webView)
         webView.visibility = View.GONE
+        viewModel.navigateBack()
     }
 }
 

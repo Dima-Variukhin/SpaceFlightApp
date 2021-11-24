@@ -19,6 +19,8 @@ abstract class BaseFragment<T : BaseViewModel> : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (activity as MainActivity).supportActionBar?.title = name()
+
         viewModel = (requireActivity() as MainActivity).getViewModel(viewModelClass(), this)
     }
 

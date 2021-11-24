@@ -1,5 +1,7 @@
 package com.example.spaceflightapp.sl.core
 
+import com.example.spaceflightapp.sl.apod.ApodModule
+import com.example.spaceflightapp.sl.apod.ApodRepositoryContainer
 import com.example.spaceflightapp.sl.articles.ArticlesModule
 import com.example.spaceflightapp.sl.articles.ArticlesRepositoryContainer
 import com.example.spaceflightapp.sl.blogs.BlogsModule
@@ -19,11 +21,13 @@ interface DependencyContainer {
             Feature.BLOGS -> BlogsModule(coreModule, blogsRepository())
             Feature.REPORTS -> ReportsModule(coreModule, reportsRepository())
             Feature.FAVORITES -> FavoritesModule(coreModule, favoritesRepository())
+            Feature.APOD -> ApodModule(coreModule, apodRepository())
         }
 
         private fun articlesRepository() = ArticlesRepositoryContainer(coreModule).repository()
         private fun blogsRepository() = BlogsRepositoryContainer(coreModule).repository()
         private fun reportsRepository() = ReportsRepositoryContainer(coreModule).repository()
         private fun favoritesRepository() = FavoritesRepositoryContainer(coreModule).repository()
+        private fun apodRepository() = ApodRepositoryContainer(coreModule).repository()
     }
 }

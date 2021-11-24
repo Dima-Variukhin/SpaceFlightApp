@@ -8,7 +8,7 @@ import com.example.spaceflightapp.presentation.*
 
 class MainViewModel(
     private val screenPosition: ScreenPosition,
-    private val mainNavigator: MainNavigator,
+    private val navigator: MainNavigator,
     private val communication: NavigationCommunication,
     private val communicationWeb: NavigationCommunicationWeb,
     private val communicationShare: NavigationCommunicationShare
@@ -36,10 +36,14 @@ class MainViewModel(
 
     }
 
+    fun navigateBack() {
+        navigator.navigateBack(communication)
+    }
+
     private fun navigateTo(position: Int) {
         communication.navigateTo(position)
     }
 
-    fun getFragment(id: Int) = mainNavigator.getFragment(id)
+    fun getFragment(id: Int) = navigator.getFragment(id)
 }
 

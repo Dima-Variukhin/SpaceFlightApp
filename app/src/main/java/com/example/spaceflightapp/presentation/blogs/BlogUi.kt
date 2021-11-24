@@ -35,6 +35,7 @@ sealed class BlogUi : FromUi<BlogUi>, Match<Int>,
                 updatedAtB,
                 data
             )
+
         override fun changeFavorite(show: Show) = show.changeFavorite(
             idB,
             titleB,
@@ -45,6 +46,8 @@ sealed class BlogUi : FromUi<BlogUi>, Match<Int>,
             publishedAtB,
             updatedAtB
         )
+
+        override fun share(show: Show) = show.share(urlB)
 
         override fun matches(arg: Int) = arg == idB
         override fun same(item: BlogUi) = item is Base && idB == item.idB

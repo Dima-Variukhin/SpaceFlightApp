@@ -18,7 +18,7 @@ class SpaceFlightApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        coreModule.init(this)
+        coreModule.init( this)
         DI.initialize(this)
     }
 

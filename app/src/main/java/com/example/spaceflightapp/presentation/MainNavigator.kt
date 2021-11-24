@@ -4,4 +4,6 @@ import com.example.spaceflightapp.core.Read
 
 interface MainNavigator : Read<Int> {
     fun getFragment(id: Int): BaseFragment<*>
+    fun navigateBack(navigationCommunication: NavigationCommunication)
+
 }

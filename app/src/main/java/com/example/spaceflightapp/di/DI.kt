@@ -5,7 +5,7 @@ import android.app.Application
 object DI {
 
     fun initialize(app: Application) {
-        NetworkDI.initialize()
-        MainScreenDI.initialize(app)
+        NetworkDI.initializeSearch()
+        MainSearchScreenDI.initialize(app)
     }
 }

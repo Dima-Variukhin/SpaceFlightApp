@@ -12,7 +12,7 @@ import com.example.spaceflightapp.domain.launches.LaunchesInteractor
 import com.example.spaceflightapp.domain.launches.SearchResultsInteractor
 import com.example.spaceflightapp.domain.launches.Validator
 
-object MainScreenDI {
+object MainSearchScreenDI {
     private lateinit var launchesCache: LaunchesCache
     private var repository: LaunchesRepository? = null
     private var launchDetailsInteractor: LaunchDetailsInteractor? = null
@@ -60,7 +60,7 @@ object MainScreenDI {
         LaunchesDataStore.CacheLaunchesDataStore(launchesCache)
 
     private fun getCloudLaunchesDataStore() = LaunchesDataStore.CloudLaunchesDataStore(
-        NetworkDI.getService(LaunchesService::class.java),
+        NetworkDI.getServiceSearch(LaunchesService::class.java),
         launchesCache
     )
 

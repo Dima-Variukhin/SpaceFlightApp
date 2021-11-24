@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.spaceflightapp.R
-import com.example.spaceflightapp.di.MainScreenDI.getLaunchesInteractorImpl
+import com.example.spaceflightapp.di.MainSearchScreenDI.getLaunchesInteractorImpl
 import com.example.spaceflightapp.domain.launches.Status
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

@@ -47,6 +47,8 @@ sealed class ReportUi : FromUi<ReportUi>, Match<Int>,
             updatedAtR
         )
 
+        override fun share(show: Show) = show.share(urlR)
+
         override fun matches(arg: Int) = arg == idR
         override fun same(item: ReportUi) = item is Base && idR == item.idR
         override fun sameContent(item: ReportUi) = if (item is Base) {

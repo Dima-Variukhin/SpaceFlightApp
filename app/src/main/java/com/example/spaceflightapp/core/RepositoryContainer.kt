@@ -1,5 +1,5 @@
 package com.example.spaceflightapp.core
 
-interface RepositoryContainer<T : BaseRepository<*>> {
+interface RepositoryContainer<T> {
     fun repository(): T
 }

@@ -45,4 +45,6 @@
     </string>
     <string name="or_tap_back_to_return_on_the_main_screen">Or tap back to return on the news screen</string>
     <string name="last_attempt_to_update">Last attempt to update :</string>
+    <string name="nasa">NASA photo of the day</string>
+    <string name="succesfully_Changed">Status of the item successfully changed</string>
 </resources>
