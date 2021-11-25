@@ -10,9 +10,7 @@ import com.example.spaceflightapp.domain.articles.ArticlesInteractor
 import com.example.spaceflightapp.presentation.BaseViewModel
 import com.example.spaceflightapp.presentation.NavigationCommunicationShare
 import com.example.spaceflightapp.presentation.NavigationCommunicationWeb
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 import kotlin.collections.ArrayList
 
@@ -38,11 +36,13 @@ class ArticlesViewModel(
 
     fun update() {
         communication.map(ArticlesUi.Base(ArrayList(listOf(ArticleUi.Progress))))
-        viewModelScope.launch(Dispatchers.IO) {
-            val resultDomain = articlesInteractor.update()
-            val resultUi = resultDomain.map(mapper)
-            withContext(Dispatchers.Main) {
-                communication.map(resultUi)
+        viewModelScope.debounceLaunch(300) {
+            withContext(Dispatchers.IO) {
+                val resultDomain = articlesInteractor.update()
+                val resultUi = resultDomain.map(mapper)
+                withContext(Dispatchers.Main) {
+                    communication.map(resultUi)
+                }
             }
         }
     }
@@ -88,3 +88,4 @@ class ArticlesViewModel(
         }
     }
 }
+

@@ -69,8 +69,8 @@ class ArticleAdapter(
                     clickListener.click(item)
                 }
                 favorite.setOnClickListener {
+                    favorite.setImageResource(R.drawable.outline_favorite_black_24);
                     favoriteLister.click(item)
-                    favorite.setImageResource(R.drawable.outline_favorite_black_24)
                 }
             }
         }

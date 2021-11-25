@@ -40,10 +40,8 @@ abstract class BaseViewHolder<E : FromUi<E>>(view: View) :
         view: View,
         private val retry: Retry
     ) : BaseViewHolder<E>(view) {
-     //   private val message = itemView.findViewById<CustomTextView>(R.id.messageTextView)
         private val button = itemView.findViewById<FloatingActionButton>(R.id.tryAgainButton)
         override fun bind(item: E) {
-           // item.map(message)
             button.setOnClickListener {
                 retry.tryAgain()
             }
@@ -64,7 +62,7 @@ interface AdapterNewsMapper<T> : Abstract.Mapper {
         summary: String,
         publishedAt: String,
         updatedAt: String,
-        data: String
+        data: String,
     ): T
 
     fun map(message: String)

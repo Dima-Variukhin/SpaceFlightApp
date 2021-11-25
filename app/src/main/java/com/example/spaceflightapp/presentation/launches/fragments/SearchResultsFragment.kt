@@ -28,7 +28,7 @@ class SearchResultsFragment : BaseFragment(R.layout.fragment_search_results) {
             model.results.observe(viewLifecycleOwner) {
                 searchResultsListView.apply {
                     adapter =
-                        ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, it)
+                        ArrayAdapter(requireContext(), android.R.layout.simple_selectable_list_item, it)
                     onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
                         Navigation.findNavController(view)
                             .navigate(R.id.details_screen, Bundle().apply {

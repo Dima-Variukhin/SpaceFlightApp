@@ -13,7 +13,7 @@ interface Validator<T> {
             } else {
                 try {
                     val year = data.toInt()
-                    year > MINIMUM_YEAR && year <= Calendar.getInstance().get(Calendar.YEAR)
+                    year > MINIMUM_YEAR && year <=  Calendar.getInstance().get(Calendar.YEAR)
                 } catch (e: NumberFormatException) {
                     false
                 }

@@ -14,6 +14,7 @@ import com.example.spaceflightapp.presentation.BaseFragment
 import com.example.spaceflightapp.presentation.apod.PhotoOfTheDay
 import com.google.android.material.snackbar.Snackbar
 
+
 class Articles : BaseFragment<ArticlesViewModel>() {
     override fun viewModelClass() = ArticlesViewModel::class.java
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,6 +34,7 @@ class Articles : BaseFragment<ArticlesViewModel>() {
                     Snackbar.LENGTH_SHORT
                 ).setAction(R.string.yes) {
                     item.changeFavorite(viewModel)
+                    viewModel.fetchArticles()
                     Toast.makeText(view.context, R.string.succesfully_Changed, Toast.LENGTH_SHORT)
                         .show()
                 }.show()

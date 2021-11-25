@@ -2,9 +2,7 @@ package com.example.spaceflightapp
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.view.View
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
@@ -42,15 +40,8 @@ interface WebViewInterface {
                     view: WebView?,
                     request: WebResourceRequest?
                 ): Boolean {
-                    val url = request?.url.toString()
-                    if (url.startsWith("tel:") || url.startsWith("whatsapp:")) {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        context.startActivity(intent)
-                        webView.goBack()
-                        return true
-                    } else {
+                   val url = request?.url.toString()
                         view?.loadUrl(url)
-                    }
                     return super.shouldOverrideUrlLoading(view, request)
                 }
 

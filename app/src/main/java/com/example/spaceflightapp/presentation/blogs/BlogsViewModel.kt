@@ -36,11 +36,13 @@ class BlogsViewModel(
 
     fun update() {
         communication.map(BlogsUi.Base(ArrayList(listOf(BlogUi.Progress))))
-        viewModelScope.launch(Dispatchers.IO) {
-            val resultDomain = blogsInteractor.update()
-            val resultUi = resultDomain.map(mapper)
-            withContext(Dispatchers.Main) {
-                communication.map(resultUi)
+        viewModelScope.debounceLaunch(300) {
+            withContext(Dispatchers.IO) {
+                val resultDomain = blogsInteractor.update()
+                val resultUi = resultDomain.map(mapper)
+                withContext(Dispatchers.Main) {
+                    communication.map(resultUi)
+                }
             }
         }
     }

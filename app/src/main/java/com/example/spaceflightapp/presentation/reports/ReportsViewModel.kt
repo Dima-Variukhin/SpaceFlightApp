@@ -26,11 +26,13 @@ class ReportsViewModel(
 ) : BaseViewModel(), Show {
     fun fetchReports() {
         communication.map(ReportsUi.Base(ArrayList(listOf(ReportUi.Progress))))
-        viewModelScope.launch(Dispatchers.IO) {
-            val resultDomain = reportsInteractor.fetchReports()
-            val resultUi = resultDomain.map(mapper)
-            withContext(Dispatchers.Main) {
-                communication.map(resultUi)
+        viewModelScope.debounceLaunch(300) {
+            withContext(Dispatchers.IO) {
+                val resultDomain = reportsInteractor.fetchReports()
+                val resultUi = resultDomain.map(mapper)
+                withContext(Dispatchers.Main) {
+                    communication.map(resultUi)
+                }
             }
         }
     }

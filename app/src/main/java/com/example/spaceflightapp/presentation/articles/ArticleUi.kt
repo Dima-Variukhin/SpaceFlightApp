@@ -52,9 +52,10 @@ sealed class ArticleUi : FromUi<ArticleUi>, Match<Int>,
             newsSiteA,
             summaryA,
             publishedAtA,
-            updatedAtA
+            updatedAtA,
         )
     }
+
 
     class Fail(private val message: String) : ArticleUi() {
         override fun map(mapper: AdapterNewsMapper<Unit>) = mapper.map(message)

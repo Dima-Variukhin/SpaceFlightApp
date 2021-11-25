@@ -289,7 +289,7 @@ class CustomFavorite : AppCompatImageButton, AdapterNewsMapper<Unit> {
     ) = if (findRealmObject(Realm.getDefaultInstance(), id) == id)
         setImageResource(R.drawable.outline_favorite_black_24)
     else
-        setImageResource(R.drawable.outline_favorite_border_24)
+        setImageResource(R.drawable.outline_favorite_border_black_24)
 
     private fun findRealmObject(realm: Realm, id: Int) =
         realm.where(FavoriteDb::class.java).equalTo("id", id).findFirst()?.id

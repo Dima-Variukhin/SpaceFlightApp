@@ -13,7 +13,6 @@ import com.example.spaceflightapp.presentation.favorites.Favorites
 import com.example.spaceflightapp.presentation.favorites.FavoritesNavigator
 import com.example.spaceflightapp.presentation.reports.Reports
 import com.example.spaceflightapp.presentation.reports.ReportsNavigator
-import kotlin.system.exitProcess
 
 interface Navigator : NavigatorScreens {
     class Base(preferencesProvider: PreferencesProvider) : Navigator {
@@ -22,11 +21,12 @@ interface Navigator : NavigatorScreens {
         }
 
         private val screens = listOf(
-            Favorites::class.java,
             Articles::class.java,
             Blogs::class.java,
             Reports::class.java,
-            PhotoOfTheDay::class.java
+            Favorites::class.java,
+            PhotoOfTheDay::class.java,
+
         )
 
         override fun read() = sharedPreferences.getInt(getCurrentScreenKey(), 0)
@@ -39,7 +39,6 @@ interface Navigator : NavigatorScreens {
 
         override fun navigateBack(navigationCommunication: NavigationCommunication) =
             navigationCommunication.navigateTo(previousScreen())
-
 
 
         private fun previousScreen(): Int {
@@ -66,11 +65,12 @@ interface Navigator : NavigatorScreens {
         private companion object {
             const val NAVIGATOR_FILE_NAME = "navigation"
             const val CURRENT_SCREEN_KEY = "screenId"
-            const val FAVORITES_SCREEN = 0
-            const val ARTICLES_SCREEN = 1
-            const val BLOGS_SCREEN = 2
-            const val REPORTS_SCREEN = 3
+            const val ARTICLES_SCREEN = 0
+            const val BLOGS_SCREEN = 1
+            const val REPORTS_SCREEN = 2
+            const val FAVORITES_SCREEN = 3
             const val APOD_SCREEN = 4
+
         }
     }
 }

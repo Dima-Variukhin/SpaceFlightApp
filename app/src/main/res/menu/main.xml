@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/apod"
-        android:icon="@drawable/outline_tips_and_updates_24"
+        android:icon="@drawable/outline_tips_and_updates_white_24"
         android:iconTint="@color/white"
         android:title="@string/nasa"
         app:showAsAction="always" />

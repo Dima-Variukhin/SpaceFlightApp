@@ -57,13 +57,6 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/outline_favorite_24"
-            android:outlineAmbientShadowColor="#6788FF"
-            android:outlineSpotShadowColor="#6788FF" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/articles" />
 
         <com.google.android.material.tabs.TabItem
@@ -75,6 +68,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/reports" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/outline_favorite_24"
+            android:outlineAmbientShadowColor="#6788FF"
+            android:outlineSpotShadowColor="#6788FF" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"

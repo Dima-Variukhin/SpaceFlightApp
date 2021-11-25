@@ -29,10 +29,10 @@ class LaunchUiMapper : Abstract.Mapper.Data<LaunchData, List<LaunchUi<*>>> {
             if (!data.launchDate.isNullOrEmpty())
                 add(LaunchUi.LaunchDate(data.launchDate))
             add(LaunchUi.LaunchSuccess(data.launchSuccess))
-            add(LaunchUi.MissionName("Details: "))
+            add(LaunchUi.MissionName("Details"))
             if (!data.details.isNullOrEmpty())
                 add(LaunchUi.Details(data.details))
-            add(LaunchUi.MissionName("Ship info:"))
+            add(LaunchUi.MissionName("Ship info"))
             if (data.ships.isNotEmpty()) {
                 var ships = ""
                 for (ship in data.ships) ships += ship + "\n"

@@ -35,6 +35,7 @@ class Reports : BaseFragment<ReportsViewModel>() {
                     Snackbar.LENGTH_SHORT
                 ).setAction(R.string.yes) {
                     item.changeFavorite(viewModel)
+                    viewModel.fetchReports()
                     Toast.makeText(view.context, R.string.succesfully_Changed, Toast.LENGTH_SHORT)
                         .show()
                 }.show()

@@ -3,7 +3,6 @@ package com.example.spaceflightapp.presentation.launches.fragments
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -29,11 +28,6 @@ class NoConnectionFragment : BaseFragment(R.layout.fragment_no_connection) {
         retryButton.setOnClickListener {
             retry?.tryAgain()
         }
-
-        val intentFilter = IntentFilter().apply {
-            addAction("android.net.conn.CONNECTIVITY_CHANGE")
-        }
-        context?.registerReceiver(receiver, intentFilter)
     }
 
     override fun onDestroy() {

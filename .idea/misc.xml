@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/ic_una.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/ic_unavailable.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/outline_favorite_24.xml" value="0.1415" />
+        <entry key="app/src/main/res/drawable/outline_tips_and_updates_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/renew.xml" value="0.234" />
         <entry key="app/src/main/res/layout-v28/checkbox.xml" value="0.1" />
         <entry key="app/src/main/res/layout-v28/fragment_launch_details.xml" value="0.25" />
@@ -26,15 +27,15 @@
         <entry key="app/src/main/res/layout-v28/subtitle.xml" value="0.1" />
         <entry key="app/src/main/res/layout-v28/text_layout.xml" value="0.20697463768115942" />
         <entry key="app/src/main/res/layout-v28/title.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_search.xml" value="0.24818840579710144" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.1" />
         <entry key="app/src/main/res/layout/apod_layout.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fail_fullscreen.xml" value="0.15443840579710144" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.15443840579710144" />
         <entry key="app/src/main/res/layout/fragment_main_search.xml" value="0.1" />
         <entry key="app/src/main/res/layout/progress.xml" value="0.1793478260869565" />
         <entry key="app/src/main/res/layout/progress_fullscreen.xml" value="0.15443840579710144" />
-        <entry key="app/src/main/res/layout/text_layout.xml" value="0.31217541834968265" />
+        <entry key="app/src/main/res/layout/text_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/year.xml" value="0.13597376387487387" />
         <entry key="app/src/main/res/menu/drawermenu.xml" value="0.28177083333333336" />
         <entry key="app/src/main/res/menu/main.xml" value="0.335" />

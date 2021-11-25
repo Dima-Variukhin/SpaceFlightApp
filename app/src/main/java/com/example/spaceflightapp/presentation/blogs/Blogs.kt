@@ -34,6 +34,7 @@ class Blogs : BaseFragment<BlogsViewModel>() {
                     Snackbar.LENGTH_SHORT
                 ).setAction(R.string.yes) {
                     item.changeFavorite(viewModel)
+                    viewModel.fetchBlogs()
                     Toast.makeText(view.context, R.string.succesfully_Changed, Toast.LENGTH_SHORT)
                         .show()
                 }.show()
