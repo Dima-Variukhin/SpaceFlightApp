@@ -9,8 +9,8 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.example.spaceflightapp"
-        minSdk 28
+        applicationId "com.myapp.spaceflightapp"
+        minSdk 22
         targetSdk 30
         versionCode 1
         versionName "1.0"

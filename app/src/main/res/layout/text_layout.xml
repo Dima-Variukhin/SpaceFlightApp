@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.spaceflightapp.core.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.myapp.spaceflightapp.core.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sml"
@@ -15,7 +15,7 @@
         android:layout_alignParentEnd="true"
         android:background="#00000000">
 
-        <com.example.spaceflightapp.core.CustomTextViewTitle
+        <com.myapp.spaceflightapp.core.CustomTextViewTitle
             android:id="@+id/title"
             android:layout_width="0dp"
             android:textColor="#6788FF"
@@ -33,7 +33,7 @@
             android:textAppearance="@style/astra_plans"
             android:textStyle="normal" />
 
-        <com.example.spaceflightapp.core.CustomImageView
+        <com.myapp.spaceflightapp.core.CustomImageView
             android:id="@+id/image"
             android:layout_width="330dp"
             android:layout_height="180dp"
@@ -47,7 +47,7 @@
             tools:background="@mipmap/ic_launchers" />
 
 
-        <com.example.spaceflightapp.core.CustomTextViewSummary
+        <com.myapp.spaceflightapp.core.CustomTextViewSummary
             android:id="@+id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:textAppearance="@style/together_na"
             android:textStyle="normal" />
 
-        <com.example.spaceflightapp.core.CustomTextViewNews
+        <com.myapp.spaceflightapp.core.CustomTextViewNews
             android:id="@+id/newsSite"
             android:textColor="#6788FF"
             android:layout_width="100dp"
@@ -81,7 +81,6 @@
             android:textAppearance="@style/spaceflight" />
 
         <RelativeLayout
-            android:id="@+id/info"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_below="@+id/summary"
@@ -90,7 +89,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="25dp">
 
-            <com.example.spaceflightapp.core.CustomTextViewPublished
+            <com.myapp.spaceflightapp.core.CustomTextViewPublished
                 android:id="@+id/publishedAt"
                 android:layout_width="73dp"
                 android:layout_height="16dp"
@@ -116,7 +115,7 @@
                 android:src="@drawable/baseline_new_releases_black_24"
                 app:color="#6788FF" />
 
-            <com.example.spaceflightapp.core.CustomTextViewUpdated
+            <com.myapp.spaceflightapp.core.CustomTextViewUpdated
                 android:id="@+id/updatedAt"
                 android:fontFamily="@font/bitterregular"
                 android:layout_width="wrap_content"
@@ -148,7 +147,7 @@
 
         </RelativeLayout>
 
-        <com.example.spaceflightapp.core.CustomTextViewUpdatedData
+        <com.myapp.spaceflightapp.core.CustomTextViewUpdatedData
             android:id="@+id/updatedDataText"
             android:fontFamily="@font/bitterregular"
             android:layout_width="wrap_content"
@@ -186,7 +185,7 @@
             android:layout_gravity="center_horizontal"
             android:background="#00000000"
             android:outlineSpotShadowColor="#CA3715"
-            android:src="@drawable/outline_share_black_24"
+            android:src="@drawable/outline_share_white_36"
             app:color="#CA3715" />
     </RelativeLayout>
 
@@ -195,15 +194,15 @@
         android:layout_height="match_parent"
         android:background="#a4a4a4">
 
-        <com.example.spaceflightapp.core.CustomFavorite
+        <com.myapp.spaceflightapp.core.CustomFavorite
             android:id="@+id/favorite"
             android:layout_width="50dp"
             android:layout_height="400dp"
             android:layout_gravity="center_horizontal"
             android:background="#00000000"
-            android:src="@drawable/outline_favorite_border_black_24" />
+            android:src="@drawable/outline_favorite_border_white_36" />
     </RelativeLayout>
 
-</com.example.spaceflightapp.core.SwipeMenuLayout>
+</com.myapp.spaceflightapp.core.SwipeMenuLayout>
 
 

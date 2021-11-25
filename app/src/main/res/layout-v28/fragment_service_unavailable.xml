@@ -11,6 +11,7 @@
         android:fontFamily="@font/bittermedium"
         android:gravity="center"
         android:padding="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/service_unavailable"
         android:textAppearance="@style/no_conectio" />
 
@@ -27,8 +28,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="60dp"
         android:foregroundGravity="center"
-        android:src="@drawable/ic_no_conection" />
+        android:src="@drawable/astronautgb" />
 
 </LinearLayout>
