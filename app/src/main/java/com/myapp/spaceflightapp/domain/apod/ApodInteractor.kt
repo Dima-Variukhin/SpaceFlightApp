@@ -4,7 +4,7 @@ import com.myapp.spaceflightapp.data.apod.ApodCheckDataToDomainMapper
 import com.myapp.spaceflightapp.data.apod.ApodRepository
 
 interface ApodInteractor {
-    suspend fun fetch(url: String): ApodCheckDomain
+    suspend fun fetch(): ApodCheckDomain
     suspend fun changeFavorite(
         id: Int,
         title: String,
@@ -20,7 +20,7 @@ interface ApodInteractor {
         private val apodRepository: ApodRepository,
         private val mapper: ApodCheckDataToDomainMapper<ApodCheckDomain>
     ) : ApodInteractor {
-        override suspend fun fetch(url: String) = apodRepository.fetch(url).map(mapper)
+        override suspend fun fetch() = apodRepository.fetch().map(mapper)
         override suspend fun changeFavorite(
             id: Int,
             title: String,

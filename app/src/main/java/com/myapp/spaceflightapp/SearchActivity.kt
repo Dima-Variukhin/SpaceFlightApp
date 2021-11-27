@@ -1,15 +1,14 @@
 package com.myapp.spaceflightapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.ProgressBar
+import android.widget.*
 import androidx.appcompat.widget.SearchView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -17,6 +16,8 @@ import com.myapp.spaceflightapp.core.Retry
 import com.myapp.spaceflightapp.presentation.launches.fragments.SearchResultsFragment
 import com.myapp.spaceflightapp.presentation.launches.viewmodels.MainScreenViewModel
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SearchActivity : AppCompatActivity(), Retry {
     private lateinit var viewModel: MainScreenViewModel
@@ -39,8 +40,14 @@ class SearchActivity : AppCompatActivity(), Retry {
         viewModel.progressState.observe(this) { show ->
             progressBar.visibility = if (show) View.VISIBLE else View.GONE
         }
+
         viewModel.errorState.observe(this) { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        }
+        val goToUpcoming = findViewById<ImageButton>(R.id.search_upcoming)
+        goToUpcoming.setOnClickListener {
+            intent = Intent(this, UpcomingActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -7,6 +7,7 @@ class LaunchUiMapper : Abstract.Mapper.Data<LaunchData, List<LaunchUi<*>>> {
     override fun map(data: LaunchData) =
         ArrayList<LaunchUi<*>>().apply {
             add(LaunchUi.MissionName(data.missionName))
+            add(LaunchUi.Image(data.images[2].address))
             val cores = data.rocket.firstStage.cores
             if (cores.isNotEmpty()) {
                 val firstStageData = ArrayList<Pair<String, Boolean>>().apply {

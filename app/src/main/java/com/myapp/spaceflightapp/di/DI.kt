@@ -6,6 +6,7 @@ object DI {
 
     fun initialize(app: Application) {
         NetworkDI.initializeSearch()
+        NetworkDI.initializeUpcoming()
         MainSearchScreenDI.initialize(app)
     }
 }

@@ -18,7 +18,6 @@
         <com.myapp.spaceflightapp.core.CustomTextViewTitle
             android:id="@+id/title"
             android:layout_width="0dp"
-            android:textColor="#6788FF"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -31,6 +30,7 @@
             android:gravity="top"
             android:text="@string/astra_plans"
             android:textAppearance="@style/astra_plans"
+            android:textColor="#6788FF"
             android:textStyle="normal" />
 
         <com.myapp.spaceflightapp.core.CustomImageView
@@ -66,7 +66,6 @@
 
         <com.myapp.spaceflightapp.core.CustomTextViewNews
             android:id="@+id/newsSite"
-            android:textColor="#6788FF"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_below="@+id/summary"
@@ -74,11 +73,11 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="@dimen/paddingSide"
             android:fontFamily="@font/bitterregular"
-
             android:gravity="center_horizontal|center_vertical"
             android:minLines="2"
             android:text="@string/spaceflight"
-            android:textAppearance="@style/spaceflight" />
+            android:textAppearance="@style/spaceflight"
+            android:textColor="#6788FF" />
 
         <RelativeLayout
             android:layout_width="100dp"
@@ -93,10 +92,10 @@
                 android:id="@+id/publishedAt"
                 android:layout_width="73dp"
                 android:layout_height="16dp"
-                android:fontFamily="@font/bitterregular"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="18dp"
+                android:fontFamily="@font/bitterregular"
                 android:gravity="center_vertical"
                 android:text="@string/april_2020"
                 android:textAppearance="@style/april_2020" />
@@ -117,7 +116,6 @@
 
             <com.myapp.spaceflightapp.core.CustomTextViewUpdated
                 android:id="@+id/updatedAt"
-                android:fontFamily="@font/bitterregular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -126,6 +124,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/bitterregular"
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:text="@string/april_2020"
@@ -142,33 +141,32 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="0dp"
                 android:background="#00000000"
-                android:src="@drawable/baseline_published_with_changes_black_24"
-                 />
+                android:src="@drawable/baseline_published_with_changes_black_24" />
 
         </RelativeLayout>
 
         <com.myapp.spaceflightapp.core.CustomTextViewUpdatedData
             android:id="@+id/updatedDataText"
-            android:fontFamily="@font/bitterregular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/newsSite"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="-93dp"
             android:layout_toStartOf="@+id/newsSite"
-            tools:text="TextView"
+            android:fontFamily="@font/bitterregular"
             android:textAppearance="@style/spaceflight"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/textView"
-            android:fontFamily="@font/bitterregular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/summary"
             android:layout_marginTop="66dp"
             android:layout_marginEnd="5dp"
             android:layout_toStartOf="@+id/updatedDataText"
+            android:fontFamily="@font/bitterregular"
             android:text="@string/last_attempt_to_update"
             android:textSize="12sp" />
     </RelativeLayout>

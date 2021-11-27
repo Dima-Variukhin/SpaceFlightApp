@@ -25,7 +25,7 @@
     <string name="service_unavailable">Service is unavailable. Try again later.</string>
     <string name="invalid_input_message">Input data is invalid! Please type the year of launches (e.g. 2018)</string>
     <string name="retry">retry</string>
-    <string name="mission_name"> %s </string>
+    <string name="mission_name">%s </string>
     <string name="flight_number">Flight N: %s</string>
     <string name="launch_year">Launch year: %s</string>
     <string name="launch_date">Launch date: %s</string>
@@ -42,4 +42,10 @@
     <string name="last_attempt_to_update">Last attempt to update :</string>
     <string name="nasa">NASA photo of the day</string>
     <string name="succesfully_Changed">Status of the item successfully changed</string>
+    <string name="precision">Date precision : %s</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="wiki">Wikipedia \n %s</string>
+    <string name="reddit">Reddit \n %s</string>
+    <string name="remain">Time to launch: %s</string>
+    <string name="search_upcoming">Tap to look for upcoming launches</string>
 </resources>

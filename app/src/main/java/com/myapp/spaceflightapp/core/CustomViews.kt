@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.myapp.spaceflightapp.R
 import com.myapp.spaceflightapp.data.favorites.cache.FavoriteDb
+import com.myapp.spaceflightapp.data.upcoming.UpcomingData
 import io.realm.Realm
 
 //todo make all views custom except image

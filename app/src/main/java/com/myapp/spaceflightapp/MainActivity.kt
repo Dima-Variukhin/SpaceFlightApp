@@ -24,10 +24,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-        viewModel = getViewModel(MainViewModel::class.java, this)
         web.initSettings(findViewById(R.id.rootView), this)
-
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
+
+        viewModel = getViewModel(MainViewModel::class.java, this)
         val tabChosen: (Int) -> Unit = { position ->
             viewModel.save(position)
         }

@@ -24,7 +24,7 @@
             android:id="@+id/relative"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:alpha="0.6">
 
             <ImageView
@@ -72,9 +72,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/outline_favorite_black_36"
-            android:outlineAmbientShadowColor="#6788FF"
-            android:outlineSpotShadowColor="#6788FF" />
+            android:icon="@drawable/outline_favorite_black_36" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"

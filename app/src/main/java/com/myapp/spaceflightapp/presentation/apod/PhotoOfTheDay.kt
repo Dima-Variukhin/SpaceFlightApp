@@ -17,7 +17,7 @@ class PhotoOfTheDay : BaseFragment<ApodViewModel>() {
         setHasOptionsMenu(true)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
         val adapter = ApodAdapter(object : Retry {
-            override fun tryAgain() = viewModel.fetch(URL)
+            override fun tryAgain() = viewModel.fetch()
         }, object : ClickListener<ApodUi> {
             override fun click(item: ApodUi) = item.share(viewModel)
         }, object : ClickListener<ApodUi> {
@@ -38,7 +38,7 @@ class PhotoOfTheDay : BaseFragment<ApodViewModel>() {
         viewModel.observe(this) {
             it.map(adapter)
         }
-        viewModel.initApod(URL)
+        viewModel.initApod()
     }
 
     companion object {

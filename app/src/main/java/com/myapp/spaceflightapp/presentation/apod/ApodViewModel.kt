@@ -21,10 +21,10 @@ class ApodViewModel(
     private val navigationCommunicationShare: NavigationCommunicationShare,
     resourceProvider: ResourceProvider,
 ) : BaseViewModel(), Show {
-    fun fetch(url: String) {
+    fun fetch() {
         communication.map(ApodCheckUi.Base(ArrayList(listOf(ApodUi.Progress))))
         viewModelScope.launch(Dispatchers.IO) {
-            val resultDomain = apodInteractor.fetch(url)
+            val resultDomain = apodInteractor.fetch()
             val resultUi = resultDomain.map(mapper)
             withContext(Dispatchers.Main) {
                 communication.map(resultUi)
@@ -36,9 +36,9 @@ class ApodViewModel(
         communication.observe(owner, observer)
     }
 
-    fun initApod(url: String) {
+    fun initApod() {
         navigator.saveApodScreen()
-        fetch(url)
+        fetch()
     }
     override fun share(data: String) {
         navigationCommunicationShare.map(data)

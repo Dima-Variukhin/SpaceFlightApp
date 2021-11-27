@@ -9,9 +9,9 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        app:titleTextColor="#6788FF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:titleTextColor="#6788FF" />
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progressBar"
@@ -27,8 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph">
+        app:navGraph="@navigation/nav_graph" />
 
-    </fragment>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

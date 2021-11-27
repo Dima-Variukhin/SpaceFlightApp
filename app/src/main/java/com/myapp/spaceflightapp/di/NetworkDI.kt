@@ -10,19 +10,35 @@ import java.util.concurrent.TimeUnit
 
 object NetworkDI {
     private const val BASE_URL_SEARCH = "https://api.spacexdata.com/v2/"
+    private const val BASE_URL_UPCOMING = "https://api.spacexdata.com/v5/"
     private lateinit var retrofitSearch: Retrofit
+    private lateinit var retrofitUpcoming: Retrofit
 
     fun initializeSearch() {
         retrofitSearch = getRetrofitSearch(getOkHttpClient(getInterceptor()))
     }
 
+    fun initializeUpcoming() {
+        retrofitUpcoming = getRetrofitUpcoming(getOkHttpClient(getInterceptor()))
+    }
+
     fun <T> getServiceSearch(className: Class<T>): T = retrofitSearch.create(className)
+
+    fun <T> getServiceUpcoming(className: Class<T>): T = retrofitUpcoming.create(className)
 
 
     private fun getRetrofitSearch(client: OkHttpClient) =
         Retrofit.Builder()
             .client(client)
             .baseUrl(BASE_URL_SEARCH)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .build()
+
+    private fun getRetrofitUpcoming(client: OkHttpClient) =
+        Retrofit.Builder()
+            .client(client)
+            .baseUrl(BASE_URL_UPCOMING)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()

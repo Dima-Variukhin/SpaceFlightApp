@@ -5,6 +5,7 @@ import android.widget.TextView
 import com.myapp.spaceflightapp.R
 import com.myapp.spaceflightapp.presentation.launches.LaunchUi
 
+
 class MissionNameViewHolder(view: View) : LaunchDetailViewHolder<LaunchUi.MissionName>(view) {
     private val textView: TextView = itemView.findViewById(R.id.textView)
     override fun bind(model: Any) {

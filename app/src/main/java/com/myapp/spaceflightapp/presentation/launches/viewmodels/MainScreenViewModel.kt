@@ -40,6 +40,7 @@ class MainScreenViewModel : ViewModel() {
     }
 
     fun fetch() = fetch(lastQuery)
+
     private fun showScreenWithId(@IdRes id: Int) {
         progressState.postValue(false)
         searchState.postValue(Pair(id, lastQuery))

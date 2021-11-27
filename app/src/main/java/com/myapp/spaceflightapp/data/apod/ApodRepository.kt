@@ -6,7 +6,7 @@ import com.myapp.spaceflightapp.data.apod.cloud.ApodCloudMapper
 import com.myapp.spaceflightapp.data.favorites.cache.FavoriteCacheDataSource
 
 interface ApodRepository : Abstract.DataObject {
-    suspend fun fetch(url: String): ApodCheckData
+    suspend fun fetch(): ApodCheckData
     suspend fun changeFavorite(
         id: Int,
         title: String,
@@ -23,8 +23,8 @@ interface ApodRepository : Abstract.DataObject {
         private val favoriteCacheDataSource: FavoriteCacheDataSource,
         private val apodCloudMapper: ApodCloudMapper
     ) : ApodRepository {
-        override suspend fun fetch(url: String) = try {
-            val cloud = apodCloudDataSource.fetch(url)
+        override suspend fun fetch() = try {
+            val cloud = apodCloudDataSource.fetch()
             val data = apodCloudMapper.map(cloud)
             ApodCheckData.Success(data)
         } catch (e: Exception) {

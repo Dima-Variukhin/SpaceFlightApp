@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
 
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -31,6 +31,7 @@
             android:layout_marginTop="0dp"
             android:src="@drawable/ic_vector_2"
             android:visibility="invisible" />
+
 
         <ImageView
             android:id="@+id/item3"
@@ -75,6 +76,57 @@
         android:layout_marginTop="30dp"
         android:src="@drawable/astronaut" />
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/search_upcoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="100dp"
+            android:background="#6788FF"
+            android:src="@drawable/outline_rocket_launch_white_48" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/search_upcoming"
+            android:layout_alignBottom="@+id/search_upcoming"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="2000dp"
+            android:layout_marginTop="-8dp"
+            android:layout_marginEnd="180dp"
+            android:layout_marginBottom="-56dp"
+            android:src="@drawable/outline_keyboard_double_arrow_up_black_36" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/search_upcoming"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/bittermedium"
+            android:gravity="center"
+            android:padding="@dimen/padding_small"
+            android:text="@string/search_upcoming"
+            android:textAppearance="@style/no_conectio"
+            android:textColor="#6788FF"
+            android:textSize="16dp" />
+
+
+    </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,6 +138,7 @@
         android:textAppearance="@style/no_conectio"
         android:textColor="#6788FF"
         android:textSize="20dp" />
+
 
 </LinearLayout>
 

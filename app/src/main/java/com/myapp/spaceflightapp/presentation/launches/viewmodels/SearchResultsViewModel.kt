@@ -11,6 +11,7 @@ class SearchResultsViewModel : ViewModel() {
 
     private val interactor = getSearchResultsInteractor()
     fun showResults(year: String) = viewModelScope.launch {
-        results.value = interactor.getSearchResults(year).map { it.missionName }
+        results.value = interactor.getSearchResults(year)
+            .map { "${it.missionName} - ${it.rocket.name}" }
     }
 }

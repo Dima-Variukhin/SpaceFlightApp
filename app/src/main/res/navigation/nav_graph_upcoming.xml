@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/search_results">
+
+    <fragment
+        android:id="@+id/no_results"
+        android:name="com.myapp.spaceflightapp.presentation.upcoming.fragments.UpcomingNoResultsFragment"
+        android:label="@string/no_results"
+        tools:layout="@layout/fragment_no_results" />
+
+    <fragment
+        android:id="@+id/search_results"
+        android:name="com.myapp.spaceflightapp.presentation.upcoming.fragments.UpcomingSearchResultsFragment"
+        android:label="@string/search_results"
+        tools:layout="@layout/fragment_search_results" />
+
+    <fragment
+        android:id="@+id/no_connection"
+        android:name="com.myapp.spaceflightapp.presentation.upcoming.fragments.UpcomingNoConnectionFragment"
+        android:label="@string/no_connection"
+        tools:layout="@layout/fragment_no_connection" />
+
+    <fragment
+        android:id="@+id/service_unavailable"
+        android:name="com.myapp.spaceflightapp.presentation.upcoming.fragments.UpcomingServiceUnavailable"
+        android:label="@string/service_unavailable"
+        tools:layout="@layout/fragment_service_unavailable" />
+
+    <fragment
+        android:id="@+id/details_screen"
+        android:name="com.myapp.spaceflightapp.presentation.upcoming.fragments.UpcomingDetailsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_launch_details" />
+
+    <action
+        android:id="@+id/go_to_search_details"
+        app:destination="@+id/details_screen"
+        app:popUpTo="@id/search_results"
+        app:popUpToInclusive="false" />
+
+
+</navigation>
